@@ -1,4 +1,4 @@
-import React ,{useState} from "react"
+import React, { useState } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import YouTube from "react-youtube"
 import { getGatsbyImageData } from "gatsby-source-sanity"
@@ -20,9 +20,9 @@ const Watch = ({
   mainContent,
   mainImage,
   picLocation,
-youTubeLink,
+  youTubeLink,
 }) => {
-  const [videoId, setVideoId] = useState(videoId)
+  const [videoId, setVideoId] = useState(null)
   const [player, setPlayer] = useState(null)
   const [videoPlaying, setVideoPlaying] = useState(false)
 
@@ -39,14 +39,14 @@ youTubeLink,
     setVideoPlaying(false)
   }
 
-   const opts = {
-     height: "480",
-     width: "100%",
-     playerVars: {
-       // https://developers.google.com/youtube/player_parameters
+  const opts = {
+    height: "480",
+    width: "100%",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
       //  autoplay: 1,
-     },
-   }
+    },
+  }
 
   const imageData = getGatsbyImageData(
     mainImage.asset,
@@ -70,7 +70,7 @@ youTubeLink,
             style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
           />
         )}
-
+        {youTubeLink && (
           <div className="videoWrapper">
             <YouTube
               videoId={youTubeLink}
@@ -80,7 +80,7 @@ youTubeLink,
               disabled={!player}
             />
           </div>
-
+        )}
       </PicImg>
       {!videoPlaying && (
         <PicContentOverlay watch>

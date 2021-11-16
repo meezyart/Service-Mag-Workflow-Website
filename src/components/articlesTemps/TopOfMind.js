@@ -7,7 +7,11 @@ import { ArrowLink, Flex,Container, Col } from "../../styles/globalStyles"
 import { TopForm,PicTitle } from "../../styles/articleStyles"
 
 const TopOfMind = ({ pageSections }) => {
-  const { heading, quest1, quest2, ratingQues } = pageSections[0]
+  // if(pageSections){
+
+    const { heading, quest1, quest2, ratingQues } = pageSections[0]
+  // }
+
   // Initiate forms
   const {
     register,

@@ -67,12 +67,12 @@ const EditionMenu = ({ isActive, editions }) => {
   const [currentPage, setCurrentPage] = useState(editions[0].articlePages[0])
   const dispatch = useGlobalDispatchContext()
   const { currentEdition, currentMenu } = useGlobalStateContext()
-  console.log(
-    // editions.articlePages[0],
-    'currentEdition',currentEdition,
-    'currentMenu',currentMenu,
-    editions
-  )
+  // console.log(
+  //   // editions.articlePages[0],
+  //   'currentEdition',currentEdition,
+  //   'currentMenu',currentMenu,
+  //   editions
+  // )
   const articlePages = editions.map((edition) => {
     const arr = []
     edition.articlePages.map((page) => {

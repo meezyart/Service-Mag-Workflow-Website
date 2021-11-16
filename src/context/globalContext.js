@@ -1,8 +1,11 @@
 import React, { createContext, useReducer, useContext } from "react"
-
+export const initialState = {
+  currentMenu: "Edition",
+  currentEdition: 0,
+}
 //Define Context
-const GlobalStateContext = createContext()
-const GlobalDispatchContext = createContext()
+const GlobalStateContext = createContext(initialState)
+const GlobalDispatchContext = createContext(initialState)
 
 //Reducer
 const globalReducer = (state, action) => {
@@ -38,11 +41,10 @@ console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state"
 // : window.localStorage.getItem("theme"),
 // cursorType: false,
 // cursorStyles: ["pointer", "hovered", "locked", "white"],
+
+
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(globalReducer, {
-    currentMenu: 'Edition',
-    currentEdition: 0
-  })
+  const [state, dispatch] = useReducer(globalReducer, initialState)
 
   return (
     <GlobalDispatchContext.Provider value={dispatch}>
