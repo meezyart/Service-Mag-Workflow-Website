@@ -7,11 +7,11 @@ export const CoverHero = styled.div`
   height: 100vh;
   /* max-height: 800px; */
   display: grid;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* position: absolute; */
   top: 0;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: clamp(35rem, 60vh, 38rem);
+  grid-template-rows: clamp(30rem, 60vh, 38rem);
   grid-template-areas:
     "Hero Hero"
     "bottom bottom";
@@ -459,7 +459,6 @@ export const PartnerHero = styled.div`
 
   grid-template-rows: 1fr;
   .fullScreen {
-    background: red;
     height: 100%;
 
     /* height: 1000rem; */
@@ -467,6 +466,7 @@ export const PartnerHero = styled.div`
   }
   @media (max-width: 967px) {
     display: flex;
+    /* background: #0000003d; */
     flex-direction: column;
     justify-content: space-between;
   }
@@ -477,6 +477,9 @@ export const PartnerImg = styled.div`
 
   position: fixed;
   z-index: -1;
+  @media (max-width: 967px) {
+    opacity: 0.2;
+  }
 `
 export const PartnerContentOverlay = styled.div`
   grid-area: 1 / 2 / 2 / 3;

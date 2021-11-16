@@ -6,11 +6,11 @@ import { Col, Container, Flex } from "../../styles/globalStyles"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 import clientConfig from "../../../client-config"
-import Link from "gatsby"
+import {Link} from "gatsby"
 
 import PortableText from "../partials/portableText"
 
-const transition =  {duration: .5, ease: [0.43, 0.13, 0.23, 0.96]};
+const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
 const container = {
   hidden: {
     x: "100vw",
@@ -26,13 +26,22 @@ const container = {
   },
 }
 
-
-const CoverTemplate = ({ variants, headline,title,subtitle,tocTitle,tocList,introText ,mainImage}) => {
-    const imageData = getGatsbyImageData(
-      mainImage,
-      { maxWidth: 3000, aspectRatio:22/9},
-      clientConfig.sanity
-    )
+const CoverTemplate = ({
+  variants,
+  headline,
+  title,
+  subtitle,
+  tocTitle,
+  tocList,
+  introText,
+  mainImage,
+}) => {
+  console.log("Check => ~ file: Cover.js ~ line 40 ~ tocList,", tocList)
+  const imageData = getGatsbyImageData(
+    mainImage,
+    { maxWidth: 3000, aspectRatio: 14 / 9 },
+    clientConfig.sanity
+  )
   return (
     <Container
       variants={variants}
@@ -85,28 +94,17 @@ const CoverTemplate = ({ variants, headline,title,subtitle,tocTitle,tocList,intr
                 <Col className="toc">
                   <h3>{tocTitle}</h3>
                   <ul className="links">
-                    {tocList.length>=0 &&
-                      tocList.map((item) => {
-                        <TocTitle>
-                          <Link to={"/"}>
-                            <h4>{item.title}</h4>
+                    {tocList &&
+                      tocList.map(({ title, subText, page, linkColor }, idex) => (
+                        <TocTitle key={idex} color={linkColor?linkColor:''}>
+                          <Link to={page.slug.current}>
+                            <h4>{title}</h4>
                           </Link>
-                          {item.subtitle}
+                          {subText}
                         </TocTitle>
-                      })}
+                      ))}
 
-                    <TocTitle color="#46ABAC">
-                      <h4>Prodect Spot light</h4>
-                      reprehenderit in voluptate velit
-                    </TocTitle>
-                    <TocTitle color="#8A82BB">
-                      <h4>Prodect Spot light</h4>
-                      reprehenderit in voluptate velit
-                    </TocTitle>
-                    <TocTitle color="#EC8687">
-                      <h4>Prodect Spot light</h4>
-                      reprehenderit in voluptate velit
-                    </TocTitle>
+
                   </ul>
                 </Col>
               </Flex>
