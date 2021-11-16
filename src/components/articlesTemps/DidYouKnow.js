@@ -1,7 +1,6 @@
 import React from 'react'
 import PortableText from "../partials/portableText"
 import {
-  ArrowLink,
   Col,
   Container,
   Flex,

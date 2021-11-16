@@ -2,12 +2,12 @@ import React, { useState, useCallback } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 //Styled Components
-import { ThemeProvider } from "styled-components"
+// import { ThemeProvider } from "styled-components"
 // import { normalize } from "styled-normalize"
 import { HamburgerCollapse } from "react-animated-burgers"
 import {
-  StyledFullScreenWrapper,
-  StyledWrapper,
+  // StyledFullScreenWrapper,
+  // StyledWrapper,
   GlobalStyle,
 } from "../styles/globalStyles"
 import { Typography } from "../styles/Typography"
@@ -22,7 +22,7 @@ import {
 } from "../context/globalContext"
 
 const Layout = ({ children }) => {
-  const { currentTheme } = useGlobalStateContext()
+  // const { currentTheme } = useGlobalStateContext()
   const menuData = useStaticQuery(graphql`
 
     query MenuQuery {
@@ -48,7 +48,6 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  console.log("Check => ~ file: layout.js ~ line 51 ~ Layout ~ menuData", menuData)
 
   const [isActive, setIsActive] = useState(false)
 
@@ -58,19 +57,19 @@ const Layout = ({ children }) => {
     []
   )
 
-  const darkTheme = {
-    background: "#000",
-    text: "#fff",
-    // left: `${hamburgerPosition.x}px`,
-    // top: `${hamburgerPosition.y}px`,
-  }
+  // const darkTheme = {
+  //   background: "#000",
+  //   text: "#fff",
+  //   // left: `${hamburgerPosition.x}px`,
+  //   // top: `${hamburgerPosition.y}px`,
+  // }
 
-  const lightTheme = {
-    background: "#f5f5f5",
-    text: "#000",
-    // left: `${hamburgerPosition.x}px`,
-    // top: `${hamburgerPosition.y}px`,
-  }
+  // const lightTheme = {
+  //   background: "#f5f5f5",
+  //   text: "#000",
+  //   // left: `${hamburgerPosition.x}px`,
+  //   // top: `${hamburgerPosition.y}px`,
+  // }
 
   const Hamburger = {
     position: "fixed",
@@ -106,7 +105,7 @@ const Layout = ({ children }) => {
   const editions = menuData.allSanityEditions.nodes
 
   return (
-    <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
+    <main>
       <Typography />
       <GlobalStyle />
 
@@ -120,7 +119,7 @@ const Layout = ({ children }) => {
       <Header editions={editions} />
 
       {children}
-    </ThemeProvider>
+    </main>
   )
 }
 

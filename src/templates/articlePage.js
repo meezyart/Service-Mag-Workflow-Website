@@ -2,8 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import CoverTemplate from "../components/articlesTemps/cover"
 import Layout from "../components/layout"
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
-import GraphQLErrorList from "../components/graphql-error-list"
+import {
+  AnimatePresence,
+  //  AnimateSharedLayout
+} from "framer-motion"
+// import GraphQLErrorList from "../components/graphql-error-list"
 import Hero from "../components/articlesTemps/Hero"
 import DidYouKnow from "../components/articlesTemps/DidYouKnow"
 import PicContent from "../components/articlesTemps/PicContent"
@@ -11,11 +14,7 @@ import Watch from "../components/articlesTemps/Watch"
 import Partnering from "../components/articlesTemps/Partnering"
 import PicTopHero from "../components/articlesTemps/PicHero"
 import TopOfMind from "../components/articlesTemps/TopOfMind"
-import {
-  StyledFullScreenWrapper,
-  StyledWrapper,
-  GlobalStyle,
-} from "../styles/globalStyles"
+import { StyledWrapper } from "../styles/globalStyles"
 
 const transition = {
   duration: 0.5,
@@ -66,22 +65,6 @@ export const query = graphql`
   }
 `
 
-// export const pageQuery = graphql`
-//   query PageQuery($id: StringQueryOperatorInput = {}) {
-//     sanityPage(id:  $id ) {
-//       id
-//       headline
-//       _rawIntroText(resolveReferences: { maxDepth: 10 })
-//       _rawMainImage(resolveReferences: { maxDepth: 10 })
-//       _rawMenuPhoto(resolveReferences: { maxDepth: 10 })
-//       _rawPageSections(resolveReferences: { maxDepth: 10 })
-//       _rawSlug(resolveReferences: { maxDepth: 10 })
-//       title
-//       _key
-//     }
-//   }
-// `
-
 const articlePage = ({ pageContext, props, data }) => {
   console.log(
     "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
@@ -92,26 +75,22 @@ const articlePage = ({ pageContext, props, data }) => {
     "\n==========",
     pageContext
   )
-  let pageContent = null;
+  let pageContent = null
 
   if (pageContext._type === "editions") {
     // Editons
     console.log("EDitons Loaded")
     const { _id } = data.editions || {}
 
-      pageContent = <CoverTemplate key={_id} {...data.editions} />
+    pageContent = <CoverTemplate key={_id} {...data.editions} />
   }
   if (pageContext._type === "page") {
     console.log("page Loaded")
     pageContent = (pageContext.pageSections || [])
       .filter((c) => !c.disabled)
       .map((c, i) => {
-        console.log(
-          "Check => ~ file: articlePage.js ~ line 103 ~ .map ~ c",
-          c
-        )
+        console.log("Check => ~ file: articlePage.js ~ line 103 ~ .map ~ c", c)
         let el = null
-
 
         switch (true) {
           case c.imageSize === "FullScreenPic":
@@ -143,7 +122,7 @@ const articlePage = ({ pageContext, props, data }) => {
   // const { errors } = props
 
   // const { edition } = pageContext
-console.log('pageContent' ,pageContent)
+  console.log("pageContent", pageContent)
   return (
     <Layout>
       <AnimatePresence key="layout">

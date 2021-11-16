@@ -1,5 +1,5 @@
 import * as React from "react"
-import CoverTemplate from "../components/articlesTemps/cover"
+// import CoverTemplate from "../components/articlesTemps/cover"
 // import { Link } from "gatsby"
 
 import Layout from "../components/layout"

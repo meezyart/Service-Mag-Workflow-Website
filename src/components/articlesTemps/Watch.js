@@ -40,7 +40,7 @@ youTubeLink,
   }
 
    const opts = {
-     height: "600",
+     height: "480",
      width: "100%",
      playerVars: {
        // https://developers.google.com/youtube/player_parameters
@@ -75,6 +75,7 @@ youTubeLink,
             <YouTube
               videoId={youTubeLink}
               opts={opts}
+              className="youTubeWrapper"
               onReady={onReady}
               disabled={!player}
             />

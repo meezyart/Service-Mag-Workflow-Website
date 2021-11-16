@@ -9,7 +9,13 @@ import {
   HeroImg,
   HeroContentOverlay,
 } from "../../styles/articleStyles"
-import {Line,  ArrowLink, Col,Container, Flex } from "../../styles/globalStyles"
+import {
+  Line,
+  // ArrowLink,
+  Col,
+  Container,
+  Flex,
+} from "../../styles/globalStyles"
 
 const Hero = ({
   col1Content,
@@ -23,11 +29,6 @@ const Hero = ({
     heroImage.asset,
     { maxWidth: 3000 },
     clientConfig.sanity
-  )
-  console.log(
-    "Check => ~ file: Hero.js ~ line 19 ~ Hero ~ imageData",
-    imageData,
-
   )
 
   return (

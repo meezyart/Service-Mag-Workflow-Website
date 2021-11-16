@@ -65,10 +65,6 @@ const path = require(`path`)
 
 
 // exports.createPages = async ({ actions }) => {
-//  console.log(
-//    "Check => ~ file: gatsby-node.js ~ line 3 ~ exports.createPages= ~ editions",
-//    data.editions
-//  )
 //   const { createPage } = actions
 //   data.editions.forEach((edition) =>
 //     createPage({
@@ -111,13 +107,8 @@ async function createCoverPages(
 
   const editionsNodes = (result.data.allSanityEditions || {}).nodes || []
   editionsNodes.forEach((edge) => {
-    console.log(
-      "Check => ~ file: gatsby-node.js ~ line 114 ~ result.data.allSanityEditions.nodes.forEach ~ edge",
-      edge
-    )
     const { _id, slug = {},_type, title} = edge
     const editionPath = [pathPrefix, slug.current, "/"].join("")
-    console.log("Check => ~ file: gatsby-node.js ~ line 120 ~ editionsNodes.forEach ~ editionPath", editionPath)
     reporter.info(`Creating landing page: ${editionPath}`)
     createPage({
       path: editionPath,
@@ -126,7 +117,6 @@ async function createCoverPages(
     })
 
     edge._rawArticlePages && edge._rawArticlePages.forEach((article) => {
-      console.log("Check => ~ file: gatsby-node.js ~ line 129 ~ edge._rawArticlePages&&edge._rawArticlePages.forEach ~ article", article)
       const { id, slug = {}, pageTemplate, pageSections, _type } = article
       const articlePath = [`${editionPath}`, slug.current, "/"].join("")
       reporter.info(`Creating landing page: ${articlePath}`)
@@ -162,7 +152,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 //       }
 //     }
 //   `)
-//   console.log("Check => ~ file: gatsby-node.js ~ line 98 ~ exports.createPages= ~ result", result)
 //   const templatePath = path.resolve("./src/templates/articlePage.js")
 
 //   result.data.allEditions.forEach((node) => {

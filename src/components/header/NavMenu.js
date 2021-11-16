@@ -53,12 +53,7 @@ console.log(
 
           )
         })}
-      {/* {menuData &&
-        menuData.allEditions.nodes.map((item, index) => (
-          <Link to={`/${item.slug}`}>
-            <NavItem key={item.id}>{index + 1}</NavItem>
-          </Link>
-        ))} */}
+     
     </Flex>
   )
 }

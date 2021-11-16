@@ -8,12 +8,7 @@ const GlobalDispatchContext = createContext()
 const globalReducer = (state, action) => {
 console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state", state)
   switch (action.type) {
-    case "TOGGLE_THEME": {
-      return {
-        ...state,
-        currentTheme: action.theme,
-      }
-    }
+
     case "SET_EDITION": {
       return {
         ...state,
@@ -26,12 +21,7 @@ console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state"
         currentMenu: action.currentMenu,
       }
     }
-    // case "CURSOR_TYPE": {
-    //   return {
-    //     ...state,
-    //     cursorType: action.cursorType,
-    //   }
-    // }
+
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }
@@ -39,6 +29,10 @@ console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state"
 }
 
 //Provider
+    // currentTheme:
+    //   window.localStorage.getItem("theme") == null
+    //     ? "dark"
+    //     : window.localStorage.getItem("theme"),
 // window.localStorage.getItem("theme") == null
 // ? "dark"
 // : window.localStorage.getItem("theme"),
@@ -46,10 +40,6 @@ console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state"
 // cursorStyles: ["pointer", "hovered", "locked", "white"],
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, {
-    currentTheme:
-      window.localStorage.getItem("theme") == null
-        ? "dark"
-        : window.localStorage.getItem("theme"),
     currentMenu: 'Edition',
     currentEdition: 0
   })

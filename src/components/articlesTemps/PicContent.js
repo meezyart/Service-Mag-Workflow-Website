@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 import clientConfig from "../../../client-config"
@@ -12,9 +12,19 @@ import {
   PicTitle,
   PicText,
 } from "../../styles/articleStyles"
-import { ArrowLink,Container, Flex, Col } from '../../styles/globalStyles'
+import { ArrowLink, } from "../../styles/globalStyles"
 
-const PicContent = ({ right, mainImage, contentLocation ,topTextCta, heading,mainContent,sideSecBlurb,sideSecCta,sideSecHeading}) => {
+const PicContent = ({
+  right,
+  mainImage,
+  contentLocation,
+  topTextCta,
+  heading,
+  mainContent,
+  sideSecBlurb,
+  sideSecCta,
+  sideSecHeading,
+}) => {
   const imageData = getGatsbyImageData(
     mainImage.asset,
     { maxWidth: 3000 },
@@ -36,25 +46,7 @@ const PicContent = ({ right, mainImage, contentLocation ,topTextCta, heading,mai
           alt="A Gatsby astronaut"
           style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
         />
-        {/* <StaticImage
-            src="../../assets/images/drinking-coffee.jpg"
-            // width={2200}
-         "_id": "drafts.26774e4a-6433-4ff6-87d3-7b7fed541136",
-          "_rawSlug": {
-            "_type": "slug",
-            "current": "december-2021"
-          }
-        }
-      ]
-            // height={1600}
-            layout="fullWidth"
-            aspectRatio={22 / 15}
-            quality={95}
-            fit="cover"
-            formats={["auto", "webp", "avif"]}
-            alt="A Gatsby astronaut"
-            style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
-          /> */}
+      
       </PicImg>
       <PicContentOverlay right={contentLocation === "right"}>
         <div className="picContentWrapper">

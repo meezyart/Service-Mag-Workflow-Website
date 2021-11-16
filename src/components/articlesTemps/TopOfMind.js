@@ -16,10 +16,6 @@ const TopOfMind = ({ pageSections }) => {
     control,
     formState: { errors },
   } = useForm()
-  console.log(
-    "Check => ~ file: TopOfMind.js ~ line 14 ~ TopOfMind ~ errors",
-    errors
-  )
 
   const handlePost = (formData) => {
     console.log(formData)

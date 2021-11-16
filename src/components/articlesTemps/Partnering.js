@@ -8,11 +8,11 @@ import {
   PartnerContentOverlay,
   PartnerImg,
   IntroText,
-  PicTitle,
+  // PicTitle,
   ScrollBox,
   MainContent,
 } from "../../styles/articleStyles"
-import { Container } from "../../styles/globalStyles"
+// import { Container } from "../../styles/globalStyles"
 const Partnering = ({
   mainImage,
   heading,
@@ -21,10 +21,7 @@ const Partnering = ({
   pageTemplate,
   pageSections,
 }) => {
-  console.log(
-    "Check => ~ file: Partnering.js ~ line 16 ~ Partnering ~ mainImage, headline",
-    mainImage
-  )
+
   const imageData = getGatsbyImageData(
     mainImage.asset,
     { maxWidth: 9000

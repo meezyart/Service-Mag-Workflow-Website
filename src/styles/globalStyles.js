@@ -107,6 +107,12 @@ body {
   }
 }
 
+button{
+  border:none;
+  outline: none;
+  cursor: pointer;
+}
+
 ul{
   padding-left: 1.2rem;
   /* margin-top: 1.5rem ; */
@@ -337,10 +343,10 @@ export const Line = styled.span`
 export const StyledWrapper = styled(motion.div)`
   height: 100vh;
   width: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  /* background: red; */
-  place-content: start;
+  /* background: red;
+  place-content: start; */
 `
 
 export const StyledFullScreenWrapper = styled.div`

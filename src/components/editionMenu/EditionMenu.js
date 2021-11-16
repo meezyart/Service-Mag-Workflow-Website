@@ -149,7 +149,9 @@ const EditionMenu = ({ isActive, editions }) => {
                       slug={`/${page.parentSlug}/${page.slug.current}/`}
                       onClick={() => handlePageClick(index)}
                     >
+                      <div className="inner">
                       <h4>{page.title}</h4>
+                      </div>
                     </MenuItem>
                   )
                 })}

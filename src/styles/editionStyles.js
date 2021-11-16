@@ -13,7 +13,7 @@ export const MainMenu = styled(motion.section)`
   display: fixed;
 
   flex-direction: column;
-  background: #4b5d5d;
+  background: #293e40;
   color: #fff;
   z-index: 100;
   overflow-x: hidden;
@@ -22,8 +22,11 @@ export const MainMenu = styled(motion.section)`
 
 export const EditionNav = styled.div``
 export const TabNav = styled.button`
-background-color: green;
-padding: 2px 30px;
+  background-color: #81b5a1;
+  color: white;
+  font-family: var(--gilSemi);
+  padding: 10px 30px;
+  margin: 1rem 1rem 1rem 0;
 `
 export const EditionNavItem = styled(motion.div)`
   /* flex: 1 0 33.3333%; */
@@ -35,14 +38,18 @@ export const EditionNavItem = styled(motion.div)`
   flex-shrink: 1;
   flex-grow: 1;
   position: relative;
-  a{
+  a {
     position: absolute;
     width: 100%;
     height: 100%;
   }
-  .inner{
-    background: blue;
+  .inner {
+    /* background: blue; */
     display: flex;
+    height: 100%;
+    color: white;
+    font-size: 1.5rem;
+    font-family: var(--gilSemi);
     justify-content: center;
     align-items: center;
   }
@@ -62,7 +69,7 @@ export const EditionWrapper = styled(motion.div)`
 
   gap: 1rem;
   width: 100%;
-  outline: solid blue 1px;
+  /* outline: solid blue 1px; */
   /* justify-content: space-between; */
   flex-wrap: wrap;
 `
