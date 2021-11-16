@@ -1,15 +1,15 @@
 import React from 'react'
 import { useForm, Controller } from "react-hook-form"
 import StarRating from "react-svg-star-rating"
-
+import { navigate } from "gatsby"
 
 import { ArrowLink, Flex,Container, Col } from "../../styles/globalStyles"
 import { TopForm,PicTitle } from "../../styles/articleStyles"
 
-const TopOfMind = ({ pageSections }) => {
+const TopOfMind = ({ pageSections ,slug}) => {
   // if(pageSections){
 
-    const { heading, quest1, quest2, ratingQues } = pageSections[0]
+  const { heading, quest1, quest2, ratingQues } = pageSections[0]
   // }
 
   // Initiate forms
@@ -18,14 +18,37 @@ const TopOfMind = ({ pageSections }) => {
     handleSubmit,
     watch,
     control,
+    reset,
     formState: { errors },
   } = useForm()
 
-  const handlePost = (formData) => {
-    console.log(formData)
+  // Transforms the form data from the React Hook Form output to a format Netlify can read
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&")
   }
 
-
+  // Handles the post process to Netlify so we can access their serverless functions
+  const handlePost = (formData, event) => {
+    fetch(`/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "top-form", ...formData }),
+    })
+      .then((response) => {
+        navigate(`/`)
+        reset()
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    event.preventDefault()
+    // console.log(formData)
+  }
 
   return (
     <TopForm>
@@ -46,7 +69,7 @@ const TopOfMind = ({ pageSections }) => {
             <input
               type="hidden"
               name="formId"
-              value="top-of-mind-form"
+              value="top-form"
               {...register("formId")}
             />
             <h2>{quest1}</h2>
