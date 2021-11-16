@@ -66,15 +66,15 @@ export const query = graphql`
 `
 
 const articlePage = ({ pageContext, props, data }) => {
-  console.log(
-    "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
-    "\n==========",
-    data,
-    "\n==========",
-    props,
-    "\n==========",
-    pageContext
-  )
+  // console.log(
+  //   "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
+  //   "\n==========",
+  //   data,
+  //   "\n==========",
+  //   props,
+  //   "\n==========",
+  //   pageContext
+  // )
   let pageContent = null
 
   if (pageContext._type === "editions") {
@@ -85,11 +85,9 @@ const articlePage = ({ pageContext, props, data }) => {
     pageContent = <CoverTemplate key={_id} {...data.editions} />
   }
   if (pageContext._type === "page") {
-    console.log("page Loaded")
     pageContent = (pageContext.pageSections || [])
       .filter((c) => !c.disabled)
       .map((c, i) => {
-        console.log("Check => ~ file: articlePage.js ~ line 103 ~ .map ~ c", c)
         let el = null
 
         switch (true) {
@@ -119,9 +117,6 @@ const articlePage = ({ pageContext, props, data }) => {
         return el
       })
   }
-  // const { errors } = props
-
-  // const { edition } = pageContext
   console.log("pageContent", pageContent)
   return (
     <Layout>

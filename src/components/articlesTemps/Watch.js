@@ -32,9 +32,6 @@ const Watch = ({
   }
   const onReady = (event) => {
     // eslint-disable-next-line
-    console.log(
-      `YouTube Player object for videoId: "${videoId}" has been saved to state.`
-    )
     setPlayer(event.target)
     setVideoPlaying(false)
   }

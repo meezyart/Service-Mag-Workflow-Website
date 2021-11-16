@@ -9,7 +9,7 @@ const GlobalDispatchContext = createContext(initialState)
 
 //Reducer
 const globalReducer = (state, action) => {
-console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state", state)
+// console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state", state)
   switch (action.type) {
 
     case "SET_EDITION": {

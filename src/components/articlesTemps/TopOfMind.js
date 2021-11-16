@@ -52,16 +52,17 @@ const TopOfMind = ({ pageSections }) => {
             <h2>{quest1}</h2>
 
             {ratingQues.length >= 0 &&
-              ratingQues.map((ques,index) => {
+              ratingQues.map((ques, index) => {
                 let firstWord = ques.replace(/ .*/, "")
 
                 return (
-                  <label htmlFor="rating1" key={index}>
+                  <label htmlFor={`rating${index + 1}`} key={index}>
                     <h3>{ques}</h3>
                     <Controller
-                      name={firstWord}
+                      key={firstWord}
+                      name={`rating${index + 1} ${firstWord}`}
                       control={control}
-                      rules={{ required: true }}
+                      // rules={{ required: true }}
                       render={({ field, field: { onChange, ref } }) => (
                         <StarRating
                           activeColor="#81b5a1"
@@ -78,14 +79,14 @@ const TopOfMind = ({ pageSections }) => {
                 )
               })}
             <br />
-            <label htmlFor="message">
+            <label htmlFor="Question2">
               <h2>{quest2}</h2>
-              <textarea rows="5" name="message" {...register("message")} />
+              <textarea rows="5" name="Question2" {...register("Question2")} />
             </label>
             <label htmlFor="name">
               <h3>Name</h3>
               {errors.name && <p>We need your Name </p>}
-              <input name="name" {...register("name", { required: true })} />
+              <input name="name" {...register("name")} />
             </label>
             <label htmlFor="email">
               <h3>Email</h3>

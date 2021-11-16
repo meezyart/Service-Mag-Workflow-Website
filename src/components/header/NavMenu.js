@@ -11,13 +11,13 @@ import {
 
 
 const NavMenu = ({editions},pageContext, props,data) => {
-console.log(
-  "Check => ~ file: NavMenu.js ~ line 11 ~ NavMenu ~ props,data",
-  pageContext,
-  props,
-  data,
-  editions
-)
+// console.log(
+//   "Check => ~ file: NavMenu.js ~ line 11 ~ NavMenu ~ props,data",
+//   pageContext,
+//   props,
+//   data,
+//   editions
+// )
   const articlePages = editions.map((edition) => {
     const arr = []
     edition.articlePages.map((page) => {
@@ -53,7 +53,7 @@ console.log(
 
           )
         })}
-     
+
     </Flex>
   )
 }

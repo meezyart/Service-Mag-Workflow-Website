@@ -30,7 +30,7 @@ const PicContent = ({
     { maxWidth: 3000 },
     clientConfig.sanity
   )
-  console.log(right)
+  // console.log(right)
   return (
     <PicHero right={contentLocation === "right"}>
       <PicImg>
@@ -46,7 +46,7 @@ const PicContent = ({
           alt="A Gatsby astronaut"
           style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
         />
-      
+
       </PicImg>
       <PicContentOverlay right={contentLocation === "right"}>
         <div className="picContentWrapper">
