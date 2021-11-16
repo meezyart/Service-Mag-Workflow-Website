@@ -123,7 +123,7 @@ async function createCoverPages(
       createPage({
         path: articlePath,
         component: require.resolve("./src/templates/articlePage.js"),
-        context: { _id,title, ...article },
+        context: { _id,title,pageTemplate, pageSections, _type, ...article },
       })
     })
 
