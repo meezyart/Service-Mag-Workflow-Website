@@ -4,23 +4,64 @@ import styled, { css } from "styled-components"
 // ========= Cover Styles =============
 export const CoverHero = styled.div`
   width: 100%;
-  height: 36rem;
+  height: 100vh;
   /* max-height: 800px; */
   display: grid;
-  /* position: fixed; */
   overflow: hidden;
+  /* position: absolute; */
+  top: 0;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: clamp(35rem, 60vh, 38rem);
+  grid-template-areas:
+    "Hero Hero"
+    "bottom bottom";
+  /* position: fixed; */
+  /* overflow: hidden; */
   @media (max-width: 767px) {
-    height: auto;
+    grid-template-rows: auto 1fr;
+    /* height: auto; */
   }
   /* background: green; */
+  .heroWrap {
+    grid-area: 1 / 1 / 2 / 3;
+    place-content: flex-end;
+    /* height: auto; */
+    /* max-height: 38rem; */
+    z-index: -1;
+    /* max-height: 38rem; */
+    /* display: flex; */
+
+    /* overflow: hidden; */
+    .hero {
+      /* height: 90%; */
+      /* position: absolute; */
+      /* max-height: 90vw; */
+      @media (max-width: 967px) {
+        position: absolute;
+        /* height: auto; */
+      }
+      top: 0;
+      bottom: 0;
+    }
+  }
   .content {
     justify-content: space-around;
     display: flex;
+    &.top {
+      min-height: 25rem;
+      overflow: hidden;
+    }
+    grid-area: 1 / 1 / auto / auto;
     /* flex-direction: column; */
-    height: auto;
+    /* height: auto; */
     /* max-width: 50vw; */
-    min-height: 30rem;
+    /* min-height: 39rem; */
     /* position: absolute; */
+    @media (max-width: 767px) {
+      width: 100%;
+      grid-area: 1 / 1 / 2/ 3;
+      /* background: red; */
+    }
     h4 {
       font-size: clamp(1rem, 3vw, 2rem);
       font-family: var(--gilLight);
@@ -39,8 +80,8 @@ export const CoverHero = styled.div`
   }
 `
 export const CoverContent = styled.div`
-  height: auto;
-  /* height: 30vh; */
+  /* height: 100%; */
+  grid-area: bottom;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -58,7 +99,7 @@ export const CoverContent = styled.div`
     line-height: 1.7rem;
     /* grid-area: "content"; */
   }
-  h3  {
+  h3 {
     padding-bottom: 1rem;
   }
   .toc {
@@ -92,9 +133,8 @@ export const CoverContent = styled.div`
 export const TocTitle = styled.li`
   h4 {
     font-family: var(--gilMed);
-    color: ${(props) =>
-    props.color || css`var(--acapulco);`
-  }}
+    color: ${(props) => props.color || css`var(--acapulco);`};
+  }
 `
 
 // ========= Hero =============
@@ -131,7 +171,7 @@ export const HeroContentOverlay = styled.div`
   h1 {
     font-family: var(--gilLight);
     font-size: clamp(2.2rem, 5.8vw, 60pt);
- margin:0;
+    margin: 0;
   }
   h2 {
     font-family: var(--gilMed);
@@ -178,8 +218,6 @@ export const PicHero = styled.div`
   @media (max-width: 967px) {
     .hero {
       opacity: 1;
-
-
     }
     display: flex;
     background: white;
@@ -224,7 +262,7 @@ export const PicText = styled.div`
       color: inherit;
       position: relative;
       padding-left: 0.5rem;
-      top:3px;
+      top: 3px;
       /* padding-top: 1rem; */
     }
     span {
@@ -292,7 +330,7 @@ export const PicTitle = styled.div`
   font-family: var(--gilSemi);
   font-size: 0.9rem;
   align-self: flex-start;
-  color:inherit;
+  color: inherit;
   @media (max-width: 967px) {
     padding-bottom: 1rem;
   }
@@ -302,13 +340,12 @@ export const PicImg = styled.div`
   max-height: 30rem;
   /* display: flex; */
   position: relative;
-  .videoWrapper{
-    top:0;
+  .videoWrapper {
+    top: 0;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -1;
-
   }
 
   ${(props) =>
@@ -417,7 +454,7 @@ export const PartnerHero = styled.div`
   width: 100%;
   bottom: 0;
   top: 0;
-/* overflow: hidden; */
+  /* overflow: hidden; */
   position: absolute;
 
   grid-template-rows: 1fr;
@@ -536,7 +573,6 @@ export const DidYouBox = styled.div`
   }
 `
 
-
 // ========== Top of Mind =============
 
 export const TopForm = styled.div`
@@ -553,9 +589,10 @@ export const TopForm = styled.div`
   .flex {
     min-height: 30rem;
   }
-  .starWrap{
+  .starWrap {
     width: 24rem;
-  } .star {
+  }
+  .star {
     margin-right: 1.3rem;
   }
 
@@ -582,7 +619,8 @@ export const TopForm = styled.div`
     position: relative;
   }
   label,
-  h3,h2 {
+  h3,
+  h2 {
     display: block;
     margin-bottom: 0.7rem;
   }

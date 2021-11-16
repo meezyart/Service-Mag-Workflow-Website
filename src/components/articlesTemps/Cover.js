@@ -29,8 +29,8 @@ const container = {
 
 const CoverTemplate = ({ variants, headline,title,subtitle,tocTitle,tocList,introText ,mainImage}) => {
     const imageData = getGatsbyImageData(
-      mainImage.asset,
-      { maxWidth: 3000, aspectRatio :16/9},
+      mainImage,
+      { maxWidth: 3000, aspectRatio:22/9},
       clientConfig.sanity
     )
   return (
@@ -44,21 +44,23 @@ const CoverTemplate = ({ variants, headline,title,subtitle,tocTitle,tocList,intr
     >
       <Flex column>
         <CoverHero>
-    
-          <GatsbyImage
-            image={imageData}
-            // width={2200}
-            // height={1300}
-            // layout="fullWidth"
-            // aspectRatio={16 / 9}
-            // quality={95}
-            fit="cover"
-            // formats={["auto", "webp", "avif"]}
-            alt={mainImage.alt}
-            style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
-          />
+          <div className="heroWrap">
+            <GatsbyImage
+              image={imageData}
+              className="hero"
+              // width={2200}
+              // height={1300}
+              // layout="fullWidth"
+              // aspectRatio={16 / 9}
+              // quality={95}
+              // fit="cover"
+              // formats={["auto", "webp", "avif"]}
+              alt={mainImage.alt}
+              // style={{ marginBottom: `0`,  height: "100%" }}
+            />
+          </div>
           <div
-            className="content"
+            className="content top"
             style={{
               gridArea: "1/1",
               position: "relative",
@@ -73,43 +75,44 @@ const CoverTemplate = ({ variants, headline,title,subtitle,tocTitle,tocList,intr
             <h1 dangerouslySetInnerHTML={{ __html: headline }} />
             <h4>{subtitle}</h4>
           </div>
+
+          <CoverContent>
+            <Container>
+              <Flex alignTop respond gap="2rem 5rem">
+                <Col size="2" className="content">
+                  <PortableText blocks={introText} />
+                </Col>
+                <Col className="toc">
+                  <h3>{tocTitle}</h3>
+                  <ul className="links">
+                    {tocList.length>=0 &&
+                      tocList.map((item) => {
+                        <TocTitle>
+                          <Link to={"/"}>
+                            <h4>{item.title}</h4>
+                          </Link>
+                          {item.subtitle}
+                        </TocTitle>
+                      })}
+
+                    <TocTitle color="#46ABAC">
+                      <h4>Prodect Spot light</h4>
+                      reprehenderit in voluptate velit
+                    </TocTitle>
+                    <TocTitle color="#8A82BB">
+                      <h4>Prodect Spot light</h4>
+                      reprehenderit in voluptate velit
+                    </TocTitle>
+                    <TocTitle color="#EC8687">
+                      <h4>Prodect Spot light</h4>
+                      reprehenderit in voluptate velit
+                    </TocTitle>
+                  </ul>
+                </Col>
+              </Flex>
+            </Container>
+          </CoverContent>
         </CoverHero>
-
-        <CoverContent>
-          <Container>
-            <Flex alignTop respond gap="2rem 5rem">
-              <Col size="2" className="content">
-                <PortableText blocks={introText} />
-              </Col>
-              <Col className="toc">
-                <h3>{tocTitle}</h3>
-                <ul className="links">
-                  {tocList && tocList.map(item =>{
-                     <TocTitle>
-
-                       <Link to={'/'}><h4>{item.title}</h4></Link>
-                       {item.subtitle}
-
-                     </TocTitle>
-                  })}
-
-                  <TocTitle color="#46ABAC">
-                    <h4>Prodect Spot light</h4>
-                    reprehenderit in voluptate velit
-                  </TocTitle>
-                  <TocTitle color="#8A82BB">
-                    <h4>Prodect Spot light</h4>
-                    reprehenderit in voluptate velit
-                  </TocTitle>
-                  <TocTitle color="#EC8687">
-                    <h4>Prodect Spot light</h4>
-                    reprehenderit in voluptate velit
-                  </TocTitle>
-                </ul>
-              </Col>
-            </Flex>
-          </Container>
-        </CoverContent>
       </Flex>
     </Container>
   )

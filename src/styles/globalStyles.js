@@ -139,21 +139,21 @@ p{
 }
 /* Global Dark Theme */
 @media (prefers-color-scheme: dark) {
-  body {
+  /* body {
     background: var(--theme-dark-background);
     color: var(--theme-dark-text-on-background);
   }
   img[src*=".svg"] {
     filter: invert(1);
-  }
+  } */
 }
 
 /* Global Light Theme */
 @media (prefers-color-scheme: light) {
-  body {
+  /* body {
     background: var(--theme-light-background);
     color: var(--theme-light-text-on-background);
-  }
+  } */
 }`
 
 export const Container = styled(motion.div)`
