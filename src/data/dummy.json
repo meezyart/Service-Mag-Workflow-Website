@@ -1,0 +1,31 @@
+{
+    "Editions": [{
+            "title": "Syracuse",
+            "slug": "Alonso"
+        },
+        {
+            "title": "Colorado Springs",
+            "slug": "Raleigh"
+        },
+        {
+            "title": "Scottsdale",
+            "slug": "Dallas"
+        },
+        {
+            "title": "Albuquerque",
+            "slug": "Vito"
+        },
+        {
+            "title": "Santa Clara",
+            "slug": "Waylon"
+        },
+        {
+            "title": "San Jose",
+            "slug": "Hayden"
+        },
+        {
+            "title": "Carlsbad",
+            "slug": "Jamel"
+        }
+    ]
+}

@@ -1,11 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useCallback } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 //Styled Components
-import { createGlobalStyle, ThemeProvider } from "styled-components"
-import { normalize } from "styled-normalize"
+import { ThemeProvider } from "styled-components"
+// import { normalize } from "styled-normalize"
+import { HamburgerCollapse } from "react-animated-burgers"
+import {
+  StyledFullScreenWrapper,
+  StyledWrapper,
+  GlobalStyle,
+} from "../styles/globalStyles"
+import { Typography } from "../styles/Typography"
 
-import Header from "./header"
+import Header from "./header/Header"
+import EditionMenu from "./editionMenu/EditionMenu"
 
 // Context
 import {
@@ -13,45 +21,42 @@ import {
   // useGlobalDispatchContext,
 } from "../context/globalContext"
 
-
-const GlobalStyle = createGlobalStyle`
-${normalize}
-* {
-  text-decoration: none;
-
-}
-html {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    font-size: 16px;
-
-
-}
-body {
-  font-size: 16px;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background:  ${(props) => props.theme.background};
-  color: ${(props) => props.theme.text};
-  overscroll-behavior: none;
-  overflow-x: hidden;
-}
-`
-
-
 const Layout = ({ children }) => {
-  const{ currentTheme} = useGlobalStateContext()
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
+  const { currentTheme } = useGlobalStateContext()
+  const menuData = useStaticQuery(graphql`
+
+    query MenuQuery {
+      allSanityEditions {
+        nodes {
+          _key
+          includeInSitemap
           title
+          articlePages {
+            _key
+            _rawMenuPhoto(resolveReferences: { maxDepth: 10 })
+            slug {
+              current
+            }
+            title
+            pageTemplate
+          }
+          slug {
+            current
+          }
+          headline
         }
       }
     }
   `)
+  console.log("Check => ~ file: layout.js ~ line 51 ~ Layout ~ menuData", menuData)
 
-  const [toggleMenu, setToggleMenu] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
+  // const [toggleMenu, setToggleMenu] = useState(false)
+  const toggleButton = useCallback(
+    () => setIsActive((prevState) => !prevState),
+    []
+  )
 
   const darkTheme = {
     background: "#000",
@@ -67,36 +72,54 @@ const Layout = ({ children }) => {
     // top: `${hamburgerPosition.y}px`,
   }
 
-  // const onCursor = (cursorType) => {
-  //   cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
-  //   dispatch({ type: "CURSOR_TYPE", cursorType: cursorType })
-  // }
+  const Hamburger = {
+    position: "fixed",
+    backgroundColor: "#4B5D5D",
+    fontSize: ".8rem",
+    width: "55px",
+    height: "55px",
+    zIndex: "200",
+  }
+
+  const transition = {
+    duration: 0.3,
+
+    ease: [0.43, 0.13, 0.23, 0.96],
+  }
+
+  const layoutContainer = {
+    hidden: {
+      x: "100vw",
+      transition,
+    },
+    show: {
+      x: 0,
+      transition,
+    },
+    exit: {
+      x: "100vh",
+      transition,
+    },
+  }
+
+  // Edition Data
+  const editions = menuData.allSanityEditions.nodes
+
   return (
-      <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
+    <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
+      <Typography />
       <GlobalStyle />
-      <Header
-        toggleMenu={toggleMenu}
-        setToggleMenu={setToggleMenu}
-        siteTitle={data.site.siteMetadata?.title || `Title`}
+
+      <HamburgerCollapse
+        barColor="white"
+        buttonWidth={25}
+        buttonStyle={Hamburger}
+        {...{ isActive, toggleButton }}
       />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+      <EditionMenu isActive={isActive} editions={editions} />
+      <Header editions={editions} />
+
+      {children}
     </ThemeProvider>
   )
 }

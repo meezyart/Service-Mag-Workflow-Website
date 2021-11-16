@@ -4,14 +4,13 @@ import CoverTemplate from "../components/articlesTemps/cover"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Partnering from "../components/articlesTemps/Partnering"
 
-const IndexPage = () => (
+const PartnerPage = () => (
   <Layout>
     <Seo title="Home" />
-    <CoverTemplate/>
-
-
+    <Partnering />
   </Layout>
 )
 
-export default IndexPage
+export default PartnerPage

@@ -11,10 +11,10 @@ console.log(process.env.SANITY_READ_TOKEN)
 
 module.exports = {
   siteMetadata: {
-    title: `Meezyart Clean Gatsby Sanity Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Service Now Workflow Digital Magazine`,
+    description: `We're excited to present this new digital magazine designed to provide key information and resources to help you on your journey as a ServiceNow customer.`,
     author: `@meezyart`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `http://servicenowemployeeworkflows.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,6 +31,14 @@ module.exports = {
       options: {
         name: `assets`,
         path: `${__dirname}/src/assets/`,
+      },
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -56,6 +64,17 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        // Sanity project info (required)
+        ...clientConfig.sanity,
+      },
+    },
+    "babel-plugin-styled-components",
+    "gatsby-plugin-styled-components",
+    // "gatsby-plugin-mui-emotion",
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

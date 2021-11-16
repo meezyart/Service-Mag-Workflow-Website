@@ -14,6 +14,18 @@ console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state"
         currentTheme: action.theme,
       }
     }
+    case "SET_EDITION": {
+      return {
+        ...state,
+        currentEdition: action.currentEdition,
+      }
+    }
+    case "SET_MENU": {
+      return {
+        ...state,
+        currentMenu: action.currentMenu,
+      }
+    }
     // case "CURSOR_TYPE": {
     //   return {
     //     ...state,
@@ -34,9 +46,12 @@ console.log("Check => ~ file: globalContext.js ~ line 9 ~ globalReducer ~ state"
 // cursorStyles: ["pointer", "hovered", "locked", "white"],
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, {
-    currentTheme: window.localStorage.getItem("theme") == null
-    ? "dark"
-    : window.localStorage.getItem("theme"),
+    currentTheme:
+      window.localStorage.getItem("theme") == null
+        ? "dark"
+        : window.localStorage.getItem("theme"),
+    currentMenu: 'Edition',
+    currentEdition: 0
   })
 
   return (

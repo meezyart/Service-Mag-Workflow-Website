@@ -1,6 +1,79 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
+
+
+export const MainMenu = styled(motion.section)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  display: fixed;
+
+  flex-direction: column;
+  background: #4b5d5d;
+  color: #fff;
+  z-index: 100;
+  overflow-x: hidden;
+  padding: 3rem;
+`
+
+export const EditionNav = styled.div``
+export const TabNav = styled.button`
+background-color: green;
+padding: 2px 30px;
+`
+export const EditionNavItem = styled(motion.div)`
+  /* flex: 1 0 33.3333%; */
+  height: 15rem;
+  display: block;
+  cursor: pointer;
+  /* width: 400px;
+  flex-basis: 400px; */
+  flex-shrink: 1;
+  flex-grow: 1;
+  position: relative;
+  a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .inner{
+    background: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  background-color: #a4a8a8;
+`
+
+export const EditionInner = styled.div`
+  margin-top: 6rem;
+  height: 80vh;
+  width: 100%;
+
+`
+export const EditionWrapper = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  gap: 1rem;
+  width: 100%;
+  outline: solid blue 1px;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+`
+
+
+
+
+
+
+
+
 export const Nav = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -8,7 +81,7 @@ export const Nav = styled(motion.div)`
   width: 100%;
   height: 100%;
   display: block;
-  background: #ea281e;
+  background: #ea5816;
   color: #000;
   z-index: 100;
   overflow: hidden;
