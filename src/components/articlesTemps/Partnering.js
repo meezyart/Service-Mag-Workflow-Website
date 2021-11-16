@@ -23,7 +23,7 @@ const Partnering = ({
 }) => {
 
   const imageData = getGatsbyImageData(
-    mainImage.asset,
+   mainImage && mainImage.asset,
     { maxWidth: 9000
      },
     clientConfig.sanity

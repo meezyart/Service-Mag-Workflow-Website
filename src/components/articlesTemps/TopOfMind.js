@@ -9,7 +9,7 @@ import { TopForm,PicTitle } from "../../styles/articleStyles"
 const TopOfMind = ({ pageSections }) => {
   // if(pageSections){
 
-    const { heading, quest1, quest2, ratingQues } = pageSections[0]
+  //   const { heading, quest1, quest2, ratingQues } = pageSections[0]
   // }
 
   // Initiate forms
@@ -32,7 +32,7 @@ const TopOfMind = ({ pageSections }) => {
       <Flex alignTop spaceBetween column className="flex">
         <PicTitle>Top of Mind</PicTitle>
 
-        <h1>{heading}</h1>
+        <h1>{pageSections && pageSections[0].heading}</h1>
         <div className="form-inner">
           <form
             onSubmit={handleSubmit(handlePost)}
@@ -49,14 +49,16 @@ const TopOfMind = ({ pageSections }) => {
               value="top-of-mind-form"
               {...register("formId")}
             />
-            <h2>{quest1}</h2>
+            <h2>{pageSections && pageSections[0].quest1}</h2>
 
-            {ratingQues.length >= 0 &&
-              ratingQues.map((ques) => {
+            {pageSections &&
+              pageSections[0].ratingQues.length >= 0 &&
+              pageSections &&
+              pageSections[0].ratingQues.map((ques, index) => {
                 let firstWord = ques.replace(/ .*/, "")
 
                 return (
-                  <label htmlFor="rating1">
+                  <label htmlFor="rating1" key={index}>
                     <h3>{ques}</h3>
                     <Controller
                       name={firstWord}
@@ -79,7 +81,7 @@ const TopOfMind = ({ pageSections }) => {
               })}
             <br />
             <label htmlFor="message">
-              <h2>{quest2}</h2>
+              <h2>{pageSections && pageSections[0].quest2}</h2>
               <textarea rows="5" name="message" {...register("message")} />
             </label>
             <label htmlFor="name">

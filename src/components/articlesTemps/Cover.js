@@ -28,7 +28,6 @@ const container = {
 
 
 const CoverTemplate = ({ variants, headline,title,subtitle,tocTitle,tocList,introText ,mainImage}) => {
-console.log("Check => ~ file: Cover.js ~ line 30 ~ CoverTemplate ~ tocList", tocList)
     const imageData = getGatsbyImageData(
       mainImage.asset,
       { maxWidth: 3000, aspectRatio :16/9},
@@ -45,17 +44,7 @@ console.log("Check => ~ file: Cover.js ~ line 30 ~ CoverTemplate ~ tocList", toc
     >
       <Flex column>
         <CoverHero>
-          {/* <StaticImage
-            src="../../assets/images/drinking-coffee.jpg"
-            // width={2200}
-            // height={1300}
-            layout="fullWidth"
-            aspectRatio={16 / 9}
-            quality={95}
-            formats={["auto", "webp", "avif"]}
-            alt="A Gatsby astronaut"
-            style={{ marginBottom: `0`, gridArea: "1/1", height: "100%" }}
-          /> */}
+    
           <GatsbyImage
             image={imageData}
             // width={2200}
