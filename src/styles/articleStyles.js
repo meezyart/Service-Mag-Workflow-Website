@@ -4,14 +4,14 @@ import styled, { css } from "styled-components"
 // ========= Cover Styles =============
 export const CoverHero = styled.div`
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   /* max-height: 800px; */
   display: grid;
   /* overflow: hidden; */
   /* position: absolute; */
   top: 0;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: clamp(30rem, 60vh, 38rem);
+  grid-template-rows: clamp(30rem, 38rem, 44rem);
   grid-template-areas:
     "Hero Hero"
     "bottom bottom";

@@ -162,9 +162,11 @@ export const Container = styled(motion.div)`
   padding: 0 32px;
   position: relative;
   width: 100%;
+  /* overflow: hidden;
   /* height: auto; */
 
-  @media (min-width: var(--small)) {
+
+  @media (min-width: 1024px) {
     max-width: 960px;
   }
   @media (min-width: 1216px) {
