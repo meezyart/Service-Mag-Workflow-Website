@@ -5694,8 +5694,8 @@ gatsby-plugin-manifest@^4.0.0:
 
 gatsby-plugin-netlify@^3.14.0:
   version "3.14.0"
-  resolved "https://npm.apple.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-3.14.0.tgz#fa1b2441531d958a26b378c76753c5d24bd428d5"
-  integrity sha1-+hskQVMdlYoms3jHZ1PF0kvUKNU=
+  resolved "https://registry.npmjs.org/gatsby-plugin-netlify/-/gatsby-plugin-netlify-3.14.0.tgz#fa1b2441531d958a26b378c76753c5d24bd428d5"
+  integrity sha512-+lv5i0IhtIHFecP3uL6u/vF0DzDBGlkGzPyPIhgM1krZqlLy2LzKos1nyCMoi7aHm54/B8DENl4J+hMCkC0wjQ==
   dependencies:
     "@babel/runtime" "^7.14.8"
     fs-extra "^10.0.0"
