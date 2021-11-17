@@ -46,7 +46,6 @@ const PicContent = ({
           alt="A Gatsby astronaut"
           style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
         />
-
       </PicImg>
       <PicContentOverlay right={contentLocation === "right"}>
         <div className="picContentWrapper">
@@ -66,7 +65,7 @@ const PicContent = ({
       <SideContent right={contentLocation === "right"}>
         <div className="sideContentWrapper">
           <p>{sideSecBlurb}</p>
-          <ArrowLink green href={sideSecCta.link} target="_blank">
+          <ArrowLink green right href={sideSecCta.link} target="_blank">
             {sideSecCta.title}
           </ArrowLink>
         </div>

@@ -8,7 +8,7 @@ import {
   PartnerContentOverlay,
   PartnerImg,
   IntroText,
-  // PicTitle,
+  PicTitle,
   ScrollBox,
   MainContent,
 } from "../../styles/articleStyles"
@@ -21,6 +21,9 @@ const Partnering = ({
   pageTemplate,
   pageSections,
 }) => {
+
+  console.log("Check => ~ file: Partnering.js ~ line 24 ~   pageTemplate",pageSections,
+  pageSections)
 
   const imageData = getGatsbyImageData(
    mainImage && mainImage.asset,
@@ -44,11 +47,12 @@ const Partnering = ({
           style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
         />
       </PartnerImg>
+      <PicTitle pageTitle>{pageTemplate}</PicTitle>
       <PartnerHero>
         <PartnerContentOverlay>
           {/* <Container> */}
           <IntroText>
-            <h2>{pageTemplate}</h2>
+            {/* <h2>{pageTemplate}</h2> */}
             <h1>{headline}</h1>
             <h3>
               <PortableText blocks={introText} />

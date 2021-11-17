@@ -15,6 +15,7 @@ import Partnering from "../components/articlesTemps/Partnering"
 import PicTopHero from "../components/articlesTemps/PicHero"
 import TopOfMind from "../components/articlesTemps/TopOfMind"
 import { StyledWrapper } from "../styles/globalStyles"
+import { PicTitle } from "../styles/articleStyles"
 
 const transition = {
   duration: 0.5,
@@ -66,15 +67,15 @@ export const query = graphql`
 `
 
 const articlePage = ({ pageContext, props, data }) => {
-  // console.log(
-  //   "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
-  //   "\n==========",
-  //   data,
-  //   "\n==========",
-  //   props,
-  //   "\n==========",
-  //   pageContext
-  // )
+  console.log(
+    "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
+    "\n==========",
+    data,
+    "\n==========",
+    props,
+    "\n==========",
+    pageContext
+  )
   let pageContent = null
 
   if (pageContext._type === "editions") {
@@ -101,7 +102,7 @@ const articlePage = ({ pageContext, props, data }) => {
             el = <TopOfMind key={c._key} {...pageContext} />
             break
           case c._type === "heroSection":
-            el = <Hero key={c._key} {...c} />
+            el = <Hero key={c._key} {...c }{...pageContext} />
             break
           case c._type === "dykSection":
             el = <DidYouKnow key={c._key} {...c} />
@@ -127,6 +128,7 @@ const articlePage = ({ pageContext, props, data }) => {
           animate="show"
           exit="exit"
         >
+
           {pageContext.pageTemplate === "Read, Watch, Listen" && (
             <PicTopHero key={pageContext.pageTemplate.id} {...pageContext} />
           )}

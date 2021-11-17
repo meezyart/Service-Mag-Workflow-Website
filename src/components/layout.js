@@ -117,7 +117,7 @@ const Layout = ({ children }) => {
       />
       <EditionMenu isActive={isActive} editions={editions} />
       <Header editions={editions} />
-
+     
       {children}
     </main>
   )

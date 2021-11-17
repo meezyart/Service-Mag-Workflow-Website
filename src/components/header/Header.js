@@ -23,12 +23,13 @@ const Header = ({ siteTitle, toggleButton, toggleMenu, editions }) => {
   return (
     <HeaderNav>
       <Container fluid>
-        <Flex spaceBetween centerV>
+        <Flex  centerV>
           <NavMenu editions={editions} />
           <HeaderTitle>EMPLOYEE WORKFLOWS</HeaderTitle>
-          <ArticleNav />
+          {/* <ArticleNav /> */}
         </Flex>
       </Container>
+      
     </HeaderNav>
   )
 }

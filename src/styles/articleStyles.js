@@ -12,7 +12,7 @@ export const CoverHero = styled.div`
   align-items: flex-start;
   top: 0;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: minmax(38rem, 1fr) 1fr;
+  grid-template-rows: minmax(auto, 1fr) 1fr;
   grid-template-areas:
     "Hero Hero"
     "bottom bottom";
@@ -28,8 +28,10 @@ export const CoverHero = styled.div`
     place-content: flex-start;
     /* height: auto; */
     /* max-height: 38rem; */
-    z-index: -1;
     /* max-height: 38rem; */
+    height: inherit;
+
+    z-index: -1;
     /* position: absolute; */
     /* overflow: hidden; */
     .hero {
@@ -49,12 +51,12 @@ export const CoverHero = styled.div`
     justify-content: space-around;
     display: flex;
     &.top {
-      min-height: 25rem;
+      min-height: 29rem;
       overflow: hidden;
     }
-    grid-area: 1 / 1 / auto / auto;
+    grid-area: 1 / 1 / 2/ 3;
     /* flex-direction: column; */
-    /* height: auto; */
+    height: inherit;
     /* max-width: 50vw; */
     /* min-height: 39rem; */
     /* position: absolute; */
@@ -334,6 +336,17 @@ export const PicTitle = styled.div`
   font-size: 0.9rem;
   align-self: flex-start;
   color: inherit;
+  ${(props) =>
+    props.pageTitle &&
+    css`
+      color:#fff;
+      position: fixed;
+      padding-top: 4rem;
+      padding-left: 2rem;
+    `};
+
+  &.page {
+  }
   @media (max-width: 967px) {
     padding-bottom: 1rem;
   }
@@ -358,7 +371,7 @@ export const PicImg = styled.div`
     `};
 `
 export const PicContentOverlay = styled.div`
-  background: #ffffffcf;
+  background: #ffffffb7;
   padding: 4rem;
   z-index: 5;
   height: auto;
@@ -460,6 +473,7 @@ export const PartnerHero = styled.div`
   /* overflow: hidden; */
   position: absolute;
 
+
   grid-template-rows: 1fr;
   .fullScreen {
     height: 100%;
@@ -481,7 +495,7 @@ export const PartnerImg = styled.div`
   position: fixed;
   z-index: -1;
   @media (max-width: 967px) {
-    opacity: 0.2;
+    /* opacity: 0.2; */
   }
 `
 export const PartnerContentOverlay = styled.div`
@@ -505,11 +519,13 @@ export const IntroText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--color-white);
 
   h2 {
     font-family: var(--gilSemi);
     font-size: clamp(16pt, 3vw, 24pt);
     padding-bottom: 1rem;
+    /* color: var(--color-white); */
   }
 
   h1 {

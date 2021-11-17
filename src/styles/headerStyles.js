@@ -63,18 +63,22 @@ export const NavItem = styled(motion.li)`
 
 export const ArticleNavHolder = styled.ul`
   background: red;
+
 `
 
 
 export const HeaderTitle = styled.span`
-color:#fff;
-/* flex-basis: 80vw; */
-text-transform: uppercase;
-font-weight: 600;
-padding: 0;
-padding-right: 10rem;
-margin: 0;
+  color: #fff;
+  /* flex-basis: 80vw; */
+  /* flex: 3; */
+  text-transform: uppercase;
+
+  font-weight: 600;
+  padding: 0;
+  padding-left: 20vw;
+  margin: 0;
+  padding-right: 2.5rem;
   @media (max-width: 967px) {
-     visibility: hidden;
-    }
+    visibility: hidden;
+  }
 `

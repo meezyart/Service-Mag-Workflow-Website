@@ -8,6 +8,7 @@ import {
   HeroContent,
   HeroImg,
   HeroContentOverlay,
+  PicTitle
 } from "../../styles/articleStyles"
 import {
   Line,
@@ -23,6 +24,7 @@ const Hero = ({
   heading,
   subTitle,
   heroImage,
+  pageTemplate,
   links,
 }) => {
   const imageData = getGatsbyImageData(
@@ -30,7 +32,6 @@ const Hero = ({
     { maxWidth: 3000 },
     clientConfig.sanity
   )
-
   return (
     <MainHero>
       <HeroImg>
@@ -47,12 +48,12 @@ const Hero = ({
           style={{ marginBottom: `0`, gridArea: "1 / 1 ", height: "100%" }}
         />
       </HeroImg>
-
+      <PicTitle pageTitle>{pageTemplate}</PicTitle>
       <HeroContentOverlay>
         <Container>
           <Flex alignBottom gap="2rem 5rem">
             <Col size="1">
-              <h1 dangerouslySetInnerHTML={{ __html:`<i> ${heading} </i>`}} />
+              <h1 dangerouslySetInnerHTML={{ __html: `<i> ${heading} </i>` }} />
               {/* <h1>
                 {heading}
               </h1> */}

@@ -18,7 +18,7 @@ const ArticleNav = () => {
               </g>
             </g>
           </svg>
-          
+
         </NavItem>
         <NavItem articleNav>
           <svg viewBox="0 0 18.06 18.06">

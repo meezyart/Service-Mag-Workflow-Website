@@ -40,7 +40,7 @@ const CoverTemplate = ({
   console.log("Check => ~ file: Cover.js ~ line 40 ~ tocList,", tocList)
   const imageData = getGatsbyImageData(
     mainImage,
-    { maxWidth: 3000, aspectRatio: 22 / 9 },
+    { maxWidth: 3000, aspectRatio: 16/ 9 },
     clientConfig.sanity
   )
   return (

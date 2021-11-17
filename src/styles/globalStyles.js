@@ -274,9 +274,9 @@ export const ArrowLink = styled(Link)`
   display: block;
   cursor: pointer;
   position: relative;
-  span {
+  /* span {
     font-family: var(--gilLight);
-  }
+  } */
   h2 {
     display: inline;
   }
@@ -323,7 +323,12 @@ export const ArrowLink = styled(Link)`
         content: "➔";
         font-size: inherit;
         color: inherit;
+        display: inline-flex;
+        /* align-items: center; */
+        /* justify-content: center; */
         padding-left: 0.5rem;
+        position: relative;
+        top:2px;
       }
     `}
 
