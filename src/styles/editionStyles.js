@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled,{css} from "styled-components"
 import { motion } from "framer-motion"
 
 
@@ -22,39 +22,60 @@ export const MainMenu = styled(motion.section)`
 
 export const EditionNav = styled.div``
 export const TabNav = styled.button`
-  background-color: #81b5a1;
+  background-color: #1f1f1f67;
   color: white;
   font-family: var(--gilSemi);
   padding: 10px 30px;
   margin: 1rem 1rem 1rem 0;
+
+  ${(props) =>
+    props.active &&
+    css`
+      background-color: #81b5a1;
+    `};
 `
 export const EditionNavItem = styled(motion.div)`
   /* flex: 1 0 33.3333%; */
   height: 15rem;
   display: block;
   cursor: pointer;
-  /* width: 400px;
-  flex-basis: 400px; */
-  flex-shrink: 1;
-  flex-grow: 1;
+  display: grid;
+  grid-template-areas: "img";
+  text-align: center;
+  /* grid-template-columns: 1fr;
+  grid-template-rows: 1fr; */
+  /* overflow: hidden; */
+  /* width: 400px; */
+  flex-basis: 400px;
+  /* flex-shrink: 1;
+  flex-grow: 1; */
   position: relative;
+  /* grid-area: 1/1; */
   a {
     position: absolute;
     width: 100%;
     height: 100%;
   }
+  .menuImg {
+    grid-area: "img";
+    height: 100%;
+  }
   .inner {
+    grid-area: "img";
+width: inherit;
     /* background: blue; */
     display: flex;
-    height: 100%;
+    height: inherit;
+    position: absolute;
+    z-index: 5;
     color: white;
     font-size: 1.5rem;
     font-family: var(--gilSemi);
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    background-color: #1f1f1f67;
   }
-
-  background-color: #a4a8a8;
 `
 
 export const EditionInner = styled.div`
@@ -65,7 +86,7 @@ export const EditionInner = styled.div`
 `
 export const EditionWrapper = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 
   gap: 1rem;
   width: 100%;

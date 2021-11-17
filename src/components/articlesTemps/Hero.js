@@ -58,7 +58,9 @@ const Hero = ({
                 {heading}
               </h1> */}
               <Line />
-              <h2>{subTitle}</h2>
+              <h2
+                dangerouslySetInnerHTML={{ __html: subTitle }}
+              />
             </Col>
             <Col size="1"></Col>
           </Flex>

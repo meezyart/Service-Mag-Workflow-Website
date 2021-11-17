@@ -39,7 +39,7 @@ const TopOfMind = ({ pageSections ,slug}) => {
       body: encode({ "form-name": "top-form", ...formData }),
     })
       .then((response) => {
-        navigate(`/`)
+        navigate(`/success/`)
         reset()
         console.log(response)
       })
@@ -53,7 +53,7 @@ const TopOfMind = ({ pageSections ,slug}) => {
   return (
     <TopForm>
       <Flex alignTop spaceBetween column className="flex">
-        <PicTitle>Top of Mind</PicTitle>
+        <PicTitle pageTop>Top of Mind</PicTitle>
 
         <h1>{heading}</h1>
         <div className="form-inner">

@@ -5,6 +5,11 @@ import { useStaticQuery, graphql } from "gatsby"
 // import { ThemeProvider } from "styled-components"
 // import { normalize } from "styled-normalize"
 import { HamburgerCollapse } from "react-animated-burgers"
+import { motion, AnimatePresence } from "framer-motion"
+// import {
+
+//   //  AnimateSharedLayout
+// } from "framer-motion
 import {
   // StyledFullScreenWrapper,
   // StyledWrapper,
@@ -21,19 +26,21 @@ import {
   // useGlobalDispatchContext,
 } from "../context/globalContext"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
   // const { currentTheme } = useGlobalStateContext()
   const menuData = useStaticQuery(graphql`
-
     query MenuQuery {
       allSanityEditions {
         nodes {
           _key
           includeInSitemap
           title
+          menuImage: _rawMenuImage(resolveReferences: { maxDepth: 10 })
+          mainImage: _rawMainImage(resolveReferences: { maxDepth: 10 })
           articlePages {
             _key
-            _rawMenuPhoto(resolveReferences: { maxDepth: 10 })
+            mainImage: _rawMenuPhoto(resolveReferences: { maxDepth: 10 })
+
             slug {
               current
             }
@@ -96,7 +103,7 @@ const Layout = ({ children }) => {
       transition,
     },
     exit: {
-      x: "100vh",
+      x: "-100vw",
       transition,
     },
   }
@@ -115,10 +122,19 @@ const Layout = ({ children }) => {
         buttonStyle={Hamburger}
         {...{ isActive, toggleButton }}
       />
-      <EditionMenu isActive={isActive} editions={editions} />
+      <EditionMenu isActive={isActive} editions={editions} key={title} />
       <Header editions={editions} />
-     
-      {children}
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          exit="exit"
+          variants={layoutContainer}
+          key={title}
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
     </main>
   )
 }

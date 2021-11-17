@@ -339,10 +339,22 @@ export const PicTitle = styled.div`
   ${(props) =>
     props.pageTitle &&
     css`
-      color:#fff;
-      position: fixed;
+      color: #fff;
+      position: absolute;
       padding-top: 4rem;
       padding-left: 2rem;
+    `};
+  ${(props) =>
+    props.pageTop &&
+    css`
+      color: #fff;
+      position: absolute;
+      top: -1rem;
+      left: -2.5rem;
+      @media (max-width: 967px) {
+        top: 0rem;
+        left: 0rem;
+      }
     `};
 
   &.page {
@@ -371,7 +383,7 @@ export const PicImg = styled.div`
     `};
 `
 export const PicContentOverlay = styled.div`
-  background: #ffffffb7;
+  background: #ffffffb3;
   padding: 4rem;
   z-index: 5;
   height: auto;

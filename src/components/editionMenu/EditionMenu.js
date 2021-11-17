@@ -1,5 +1,15 @@
 import React, { useState } from "react"
 // Context
+
+import { GatsbyImage } from "gatsby-plugin-image"
+import { getGatsbyImageData } from "gatsby-source-sanity"
+import clientConfig from "../../../client-config"
+import {
+  // MainHero,
+  // HeroContent,
+  HeroImg,
+
+} from "../../styles/articleStyles"
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -67,12 +77,12 @@ const EditionMenu = ({ isActive, editions }) => {
   const [currentPage, setCurrentPage] = useState(editions[0].articlePages[0])
   const dispatch = useGlobalDispatchContext()
   const { currentEdition, currentMenu } = useGlobalStateContext()
-  // console.log(
-  //   // editions.articlePages[0],
-  //   'currentEdition',currentEdition,
-  //   'currentMenu',currentMenu,
-  //   editions
-  // )
+  console.log(
+    // editions.articlePages[0],
+    'currentEdition',currentEdition,
+    'currentMenu',currentMenu,
+    editions
+  )
   const articlePages = editions.map((edition) => {
     const arr = []
     edition.articlePages.map((page) => {
@@ -99,6 +109,8 @@ const EditionMenu = ({ isActive, editions }) => {
   const handlePageClick = (index) => {
     console.log("Page Clecick")
   }
+
+
   //  const size = useWindowSize()
   return (
     <MainMenu
@@ -113,7 +125,7 @@ const EditionMenu = ({ isActive, editions }) => {
           <EditionInner>
             <EditionNav>
               <Flex>
-                {types.map((type,index) => (
+                {types.map((type, index) => (
                   <TabNav
                     key={type}
                     active={currentMenu === type}
@@ -128,7 +140,17 @@ const EditionMenu = ({ isActive, editions }) => {
               {currentMenu &&
                 currentMenu === "Edition" &&
                 editions &&
-                editions.map((edition, index) => (
+                editions.map((edition, index) => {
+ console.log(
+   "Check => ~ file: EditionMenu.js ~ line 158 ~ articlePages[currentEdition].map ~ edition",
+   edition.mainImage
+ )
+ const imageData = getGatsbyImageData(
+   edition.mainImage.asset,
+   { maxWidth: 600 },
+   clientConfig.sanity
+ )
+return(
                   <MenuItem
                     slug={`/${edition.slug.current}/`}
                     key={index}
@@ -137,12 +159,36 @@ const EditionMenu = ({ isActive, editions }) => {
                     <div className="inner">
                       <h4>{edition.title}</h4>
                     </div>
-                  </MenuItem>
-                ))}
+                    <GatsbyImage
+                      image={imageData}
+                      className="menuImg"
+                      // width={2200}
+                      // height={1300}
+                      // layout="contained"
+                      aspectRatio={16 / 9}
+                      quality={95}
+                      fit="cover"
+                      formats={["auto", "webp", "avif"]}
+                      alt={edition.title}
+                      style={{
+                        marginBottom: `0`,
+                        gridArea: "1 / 1 ",
+                        height: "100%",
+                      }}
+                    />
+                  </MenuItem>)
+})}
               {currentMenu &&
                 currentMenu === "Pages" &&
                 articlePages &&
                 articlePages[currentEdition].map((page, index) => {
+
+                  const imageData = getGatsbyImageData(
+                    page.mainImage,
+                    { maxWidth: 600 },
+                    clientConfig.sanity
+                  )
+
                   return (
                     <MenuItem
                       key={index}
@@ -150,8 +196,25 @@ const EditionMenu = ({ isActive, editions }) => {
                       onClick={() => handlePageClick(index)}
                     >
                       <div className="inner">
-                      <h4>{page.title}</h4>
+                        <h4>{page.title}</h4>
                       </div>
+                      <GatsbyImage
+                        image={imageData}
+                        className="menuImg"
+                        // width={2200}
+                        // height={1300}
+                        // layout="contained"
+                        aspectRatio={16 / 9}
+                        quality={95}
+                        fit="cover"
+                        formats={["auto", "webp", "avif"]}
+                        alt="A Gatsby astronaut"
+                        style={{
+                          marginBottom: `0`,
+                          gridArea: "1 / 1 ",
+                          height: "100%",
+                        }}
+                      />
                     </MenuItem>
                   )
                 })}

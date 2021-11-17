@@ -32,8 +32,8 @@ const layoutContainer = {
     x: 0,
     transition: {
       ...transition,
-      when: "beforeChildren",
-      staggerChildren: 0.3,
+      // when: "beforeChildren",
+      // staggerChildren: 0.3,
     },
   },
   exit: {
@@ -55,6 +55,9 @@ export const query = graphql`
       _key
       _id
       mainImage {
+        asset {
+          gatsbyImageData(placeholder: DOMINANT_COLOR)
+        }
         ...SanityImage
         alt
       }
@@ -121,12 +124,12 @@ const articlePage = ({ pageContext, props, data }) => {
   console.log("pageContent", pageContent)
   return (
     <Layout>
-      <AnimatePresence key="layout">
+
         <StyledWrapper
-          variants={layoutContainer}
-          initial="hidden"
-          animate="show"
-          exit="exit"
+          // variants={layoutContainer}
+          // initial="hidden"
+          // animate="show"
+          // exit="exit"
         >
 
           {pageContext.pageTemplate === "Read, Watch, Listen" && (
@@ -134,7 +137,7 @@ const articlePage = ({ pageContext, props, data }) => {
           )}
           {pageContent}
         </StyledWrapper>
-      </AnimatePresence>
+      {/* </AnimatePresence> */}
     </Layout>
   )
 }
