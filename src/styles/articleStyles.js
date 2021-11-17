@@ -4,14 +4,15 @@ import styled, { css } from "styled-components"
 // ========= Cover Styles =============
 export const CoverHero = styled.div`
   width: 100%;
-  /* height: 100vh; */
+  height: 100%;
   /* max-height: 800px; */
   display: grid;
   /* overflow: hidden; */
   /* position: absolute; */
+  align-items: flex-start;
   top: 0;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: clamp(30rem, 38rem, 44rem);
+  grid-template-rows: minmax(38rem, 1fr) 1fr;
   grid-template-areas:
     "Hero Hero"
     "bottom bottom";
@@ -24,21 +25,21 @@ export const CoverHero = styled.div`
   /* background: green; */
   .heroWrap {
     grid-area: 1 / 1 / 2 / 3;
-    place-content: flex-end;
+    place-content: flex-start;
     /* height: auto; */
     /* max-height: 38rem; */
     z-index: -1;
     /* max-height: 38rem; */
-    /* display: flex; */
-
+    /* position: absolute; */
     /* overflow: hidden; */
     .hero {
-      /* height: 90%; */
-      /* position: absolute; */
-      /* max-height: 90vw; */
+      object-fit: cover;
+      /* height: 100vh; */
+      /* object-fit: contain; */
+      /* position: absolute; */ /* max-height: 90vw; */
       @media (max-width: 967px) {
         position: absolute;
-        /* height: auto; */
+        height: auto;
       }
       top: 0;
       bottom: 0;
@@ -59,11 +60,13 @@ export const CoverHero = styled.div`
     /* position: absolute; */
     @media (max-width: 767px) {
       width: 100%;
+      /* height: 100%; */
       grid-area: 1 / 1 / 2/ 3;
       /* background: red; */
     }
     h4 {
-      font-size: clamp(1rem, 3vw, 2rem);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: black;
       font-family: var(--gilLight);
     }
     h3 {

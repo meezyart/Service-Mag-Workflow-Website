@@ -25,7 +25,7 @@ const Header = ({ siteTitle, toggleButton, toggleMenu, editions }) => {
       <Container fluid>
         <Flex spaceBetween centerV>
           <NavMenu editions={editions} />
-          <HeaderTitle>Employee Handbook</HeaderTitle>
+          <HeaderTitle>EMPLOYEE WORKFLOWS</HeaderTitle>
           <ArticleNav />
         </Flex>
       </Container>

@@ -9,13 +9,13 @@ const Figure = ({ node }) => {
   }
   const gatsbyImageData = getGatsbyImageData(
     node,
-    { maxWidth: 675 },
+    { maxWidth: 3000 },
     clientConfig.sanity
   );
   return (
     <figure>
       <GatsbyImage image={gatsbyImageData} alt={node.alt} />
-      <figcaption>{node.caption}</figcaption>
+
     </figure>
   );
 };

@@ -35,84 +35,83 @@ const CoverTemplate = ({
   tocList,
   introText,
   mainImage,
+  _rawSlug
 }) => {
   console.log("Check => ~ file: Cover.js ~ line 40 ~ tocList,", tocList)
   const imageData = getGatsbyImageData(
     mainImage,
-    { maxWidth: 3000, aspectRatio: 14 / 9 },
+    { maxWidth: 3000, aspectRatio: 22 / 9 },
     clientConfig.sanity
   )
   return (
-    <Container
-      variants={variants}
-      initial="hidden"
-      animate="show"
-      exit="exit"
-      fluid
-      // style={{}}
-    >
-      <Flex column>
-        <CoverHero>
-          <div className="heroWrap">
-            <GatsbyImage
-              image={imageData}
-              className="hero"
-              // width={2200}
-              // height={1300}
-              // layout="fullWidth"
-              // aspectRatio={16 / 9}
-              // quality={95}
-              // fit="cover"
-              // formats={["auto", "webp", "avif"]}
-              alt={mainImage.alt}
-              // style={{ marginBottom: `0`,  height: "100%" }}
-            />
-          </div>
-          <div
-            className="content top"
-            style={{
-              gridArea: "1/1",
-              position: "relative",
-              justifyContent: "space-around",
-              display: "flex",
-              flexDirection: "column",
-              padding: "4rem",
-              color: "white",
-            }}
-          >
-            <h3>{title}</h3>
-            <h1 dangerouslySetInnerHTML={{ __html: headline }} />
-            <h4>{subtitle}</h4>
-          </div>
+    // <Container
+    //   variants={variants}
+    //   initial="hidden"
+    //   animate="show"
+    //   exit="exit"
+    //   fluid
+    //   // style={{}}
+    // >
+     // <Flex  alignTop column>
+    <CoverHero>
+      <div className="heroWrap">
+        <GatsbyImage
+          image={imageData}
+          className="hero"
+          // width={2200}
+          // height={1300}
+          // layout="fullWidth"
+          // aspectRatio={16 / 9}
+          // quality={95}
+          // fit="cover"
+          // formats={["auto", "webp", "avif"]}
+          alt={mainImage.alt}
+          // style={{ marginBottom: `0`,  height: "100%" }}
+        />
+      </div>
+      <div
+        className="content top"
+        style={{
+          gridArea: "1/1",
+          position: "relative",
+          justifyContent: "space-around",
+          display: "flex",
+          flexDirection: "column",
+          padding: "4rem",
+          color: "white",
+        }}
+      >
+        <h3>{title}</h3>
+        <h1 dangerouslySetInnerHTML={{ __html: headline }} />
+        <h4>{subtitle}</h4>
+      </div>
 
-          <CoverContent>
-            <Container>
-              <Flex alignTop respond gap="2rem 5rem">
-                <Col size="2" className="content">
-                  <PortableText blocks={introText} />
-                </Col>
-                <Col className="toc">
-                  <h3>{tocTitle}</h3>
-                  <ul className="links">
-                    {tocList &&
-                      tocList.map(({ title, subText, page, linkColor }, idex) => (
-                        <TocTitle key={idex} color={linkColor?linkColor:''}>
-                          <Link to={page.slug.current}>
-                            <h4>{title}</h4>
-                          </Link>
-                          {subText}
-                        </TocTitle>
-                      ))}
-
-
-                  </ul>
-                </Col>
-              </Flex>
-            </Container>
-          </CoverContent>
-        </CoverHero>
-      </Flex>
-    </Container>
+      <CoverContent>
+        <Container>
+          <Flex alignTop respond gap="2rem 5rem">
+            <Col size="2" className="content">
+              <PortableText blocks={introText} />
+            </Col>
+            <Col className="toc">
+              <h3>{tocTitle}</h3>
+              <ul className="links">
+                {tocList &&
+                  tocList.map(({ title, subText, page, linkColor }, idex) => (
+                    <TocTitle key={idex} color={linkColor ? linkColor : ""}>
+                      <Link to={`/${_rawSlug.current}/${page.slug.current}`}>
+                        <h4>{title}</h4>
+                      </Link>
+                      {subText}
+                    </TocTitle>
+                  ))}
+              </ul>
+            </Col>
+          </Flex>
+        </Container>
+      </CoverContent>
+  </CoverHero>
+       // </Flex> */
+    // </Container>}
   )
 }
 
