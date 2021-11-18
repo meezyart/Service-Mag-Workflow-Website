@@ -112,7 +112,7 @@ async function createCoverPages(
     reporter.info(`Creating landing page: ${editionPath}`)
     createPage({
       path: editionPath,
-      component: require.resolve("./src/templates/articlePage.js"),
+      component: require.resolve("./src/templates/ArticlePage.js"),
       context: { _id, _type, slug , title},
     })
 
@@ -122,7 +122,7 @@ async function createCoverPages(
       reporter.info(`Creating landing page: ${articlePath}`)
       createPage({
         path: articlePath,
-        component: require.resolve("./src/templates/articlePage.js"),
+        component: require.resolve("./src/templates/ArticlePage.js"),
         context: { _id,title,pageTemplate, pageSections, _type, ...article },
       })
     })
