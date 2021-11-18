@@ -140,4 +140,4 @@ const ArticlePage = ({ pageContext, props, data }) => {
   )
 }
 
-export default articlePage
+export default ArticlePage
