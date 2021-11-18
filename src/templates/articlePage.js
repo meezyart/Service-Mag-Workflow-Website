@@ -103,7 +103,7 @@ const ArticlePage = ({ pageContext, props, data }) => {
             el = <TopOfMind key={c._key} {...pageContext} />
             break
           case c._type === "heroSection":
-            el = <Hero key={c._key} {...c }{...pageContext} />
+            el = <Hero key={c._key} {...c} {...pageContext} />
             break
           case c._type === "dykSection":
             el = <DidYouKnow key={c._key} {...c} />
@@ -122,19 +122,18 @@ const ArticlePage = ({ pageContext, props, data }) => {
   console.log("pageContent", pageContent)
   return (
     <Layout>
-{/* <AnimatePresence> */}
-        <StyledWrapper
-          // variants={layoutContainer}
-          // initial="hidden"
-          // animate="show"
-          exit="exit"
-        >
-
-          {pageContext.pageTemplate === "Read, Watch, Listen" && (
-            <PicTopHero key={pageContext.pageTemplate.id} {...pageContext} />
-          )}
-          {pageContent}
-        </StyledWrapper>
+      {/* <AnimatePresence> */}
+      <StyledWrapper
+        // variants={layoutContainer}
+        // initial="hidden"
+        // animate="show"
+        exit="exit"
+      >
+        {pageContext.pageTemplate === "Read, Watch, Listen" && (
+          <PicTopHero key={pageContext.pageTemplate.id} {...pageContext} />
+        )}
+        {pageContent}
+      </StyledWrapper>
       {/* </AnimatePresence> */}
     </Layout>
   )
