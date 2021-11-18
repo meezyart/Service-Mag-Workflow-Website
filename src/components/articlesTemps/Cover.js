@@ -37,22 +37,13 @@ const CoverTemplate = ({
   mainImage,
   _rawSlug
 }) => {
-  console.log("Check => ~ file: Cover.js ~ line 40 ~ tocList,", tocList)
   const imageData = getGatsbyImageData(
     mainImage,
     { maxWidth: 3000, aspectRatio: 16/ 9 },
     clientConfig.sanity
   )
   return (
-    // <Container
-    //   variants={variants}
-    //   initial="hidden"
-    //   animate="show"
-    //   exit="exit"
-    //   fluid
-    //   // style={{}}
-    // >
-     // <Flex  alignTop column>
+
     <CoverHero>
       <div className="heroWrap">
         <GatsbyImage
@@ -110,8 +101,6 @@ const CoverTemplate = ({
         </Container>
       </CoverContent>
   </CoverHero>
-       // </Flex> */
-    // </Container>}
   )
 }
 

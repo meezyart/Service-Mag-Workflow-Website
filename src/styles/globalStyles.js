@@ -66,7 +66,14 @@ ${normalize}
 
     }
 
+a{
+  text-decoration: underline;
+  font-size: inherit;
 
+  color:inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
 
 
 
@@ -280,12 +287,13 @@ export const ArrowLink = styled(Link)`
   h2 {
     display: inline;
   }
-
+  text-decoration: none;
   /* display: flex;
   flex-direction: column; */
   padding-top: ${(props) => (props.pt ? props.pt : ".2rem")};
   &::before {
     content: "➔";
+    text-decoration: none;
     font-size: inherit;
     /* position:; */
     position: relative;
@@ -308,7 +316,12 @@ export const ArrowLink = styled(Link)`
   ${(props) =>
     props.green &&
     css`
-      color: var(--acapulco);
+      color: var(--light-monochromacy) ;
+    `}
+  ${(props) =>
+    props.white &&
+    css`
+      color: var(--color-white);
     `}
   ${(props) =>
     props.right &&
@@ -328,7 +341,7 @@ export const ArrowLink = styled(Link)`
         /* justify-content: center; */
         padding-left: 0.5rem;
         position: relative;
-        top:2px;
+        top: 2px;
       }
     `}
 

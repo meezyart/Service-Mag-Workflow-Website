@@ -83,9 +83,7 @@ const articlePage = ({ pageContext, props, data }) => {
 
   if (pageContext._type === "editions") {
     // Editons
-    console.log("EDitons Loaded")
     const { _id } = data.editions || {}
-
     pageContent = <CoverTemplate key={_id} {...data.editions} />
   }
   if (pageContext._type === "page") {
@@ -124,12 +122,12 @@ const articlePage = ({ pageContext, props, data }) => {
   console.log("pageContent", pageContent)
   return (
     <Layout>
-
+{/* <AnimatePresence> */}
         <StyledWrapper
           // variants={layoutContainer}
           // initial="hidden"
           // animate="show"
-          // exit="exit"
+          exit="exit"
         >
 
           {pageContext.pageTemplate === "Read, Watch, Listen" && (

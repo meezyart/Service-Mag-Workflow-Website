@@ -23,7 +23,6 @@ const PicTopHero = ({ pageTemplate, mainImage,introText, headline }) => {
   return (
     <PicHero PicTopHero>
       <PicImg PicTopHero>
-      
         <GatsbyImage
           image={imageData}
           // width={2200}
@@ -40,7 +39,7 @@ const PicTopHero = ({ pageTemplate, mainImage,introText, headline }) => {
       </PicImg>
       <PicContentOverlay PicTopHero>
         <div className="picContentWrapper">
-          <PicTitle>{pageTemplate}</PicTitle>
+          <PicTitle >{pageTemplate}</PicTitle>
 
           <PicText>
             <h2>{headline}</h2>

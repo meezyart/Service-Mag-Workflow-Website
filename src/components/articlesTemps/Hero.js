@@ -8,15 +8,16 @@ import {
   HeroContent,
   HeroImg,
   HeroContentOverlay,
-  PicTitle
+  PicTitle,
 } from "../../styles/articleStyles"
 import {
   Line,
-  // ArrowLink,
+  ArrowLink,
   Col,
   Container,
   Flex,
 } from "../../styles/globalStyles"
+import GetArrowLink from "../lib/getArrowLink"
 
 const Hero = ({
   col1Content,
@@ -25,7 +26,7 @@ const Hero = ({
   subTitle,
   heroImage,
   pageTemplate,
-  links,
+  link,
 }) => {
   const imageData = getGatsbyImageData(
     heroImage.asset,
@@ -53,14 +54,14 @@ const Hero = ({
         <Container>
           <Flex alignBottom gap="2rem 5rem">
             <Col size="1">
-              <h1 dangerouslySetInnerHTML={{ __html: `<i> ${heading} </i>` }} />
-              {/* <h1>
-                {heading}
-              </h1> */}
-              <Line />
-              <h2
-                dangerouslySetInnerHTML={{ __html: subTitle }}
-              />
+              <div className="inner">
+                <h1
+                  dangerouslySetInnerHTML={{ __html: `<i> ${heading} </i>` }}
+                />
+
+                <Line />
+                <h2 dangerouslySetInnerHTML={{ __html: subTitle }} />
+              </div>
             </Col>
             <Col size="1"></Col>
           </Flex>
@@ -78,13 +79,11 @@ const Hero = ({
             </Col>
           </Flex>
 
-          {/* {links && links[0] && (
+          {link && (
             <Flex center respond>
-              <ArrowLink green pt="1rem">
-                {links[0]}
-              </ArrowLink>
+              <GetArrowLink {...link}/>
             </Flex>
-          )} */}
+          )}
         </Container>
       </HeroContent>
     </MainHero>

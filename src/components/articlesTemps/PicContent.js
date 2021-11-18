@@ -30,7 +30,6 @@ const PicContent = ({
     { maxWidth: 3000 },
     clientConfig.sanity
   )
-  // console.log(right)
   return (
     <PicHero right={contentLocation === "right"}>
       <PicImg>
@@ -55,9 +54,6 @@ const PicContent = ({
             <h1>{heading}</h1>
             <h3>
               <PortableText blocks={mainContent} />
-              {/* <ArrowLink green right href={topTextCta.link} target="_blank">
-                {topTextCta.title}
-              </ArrowLink> */}
             </h3>
           </PicText>
         </div>
@@ -65,7 +61,12 @@ const PicContent = ({
       <SideContent right={contentLocation === "right"}>
         <div className="sideContentWrapper">
           <p>{sideSecBlurb}</p>
-          <ArrowLink green right href={sideSecCta.link} target="_blank">
+          <ArrowLink
+            green
+            right
+            href={sideSecCta.url || sideSecCta.link}
+            target={sideSecCta.openInNewTab ? "_blank" : ""}
+          >
             {sideSecCta.title}
           </ArrowLink>
         </div>

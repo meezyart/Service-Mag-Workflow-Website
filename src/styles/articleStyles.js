@@ -111,6 +111,9 @@ export const CoverContent = styled.div`
     flex: 1;
     width: auto;
     padding-left: 4rem;
+    a{
+      text-decoration: none;
+    }
     /* padding-bottom: 4rem; */
     /* grid-area: "toc"; */
     border-left: 2px solid #000000;
@@ -165,8 +168,18 @@ export const HeroContentOverlay = styled.div`
   grid-area: 1 / 1 / 2 / 3;
   z-index: 5;
   text-align: center;
+  .inner {
+    padding-top: 5rem;
+    /* width: 100%; */
+  }
   /* height: 100%; */
   color: #fff;
+  @media (max-width: 1024px) {
+    .inner {
+      padding-top: 5rem;
+      /* width: 100%; */
+    }
+  }
   hr {
     outline: none;
     border: none;
@@ -188,6 +201,7 @@ export const HeroContent = styled.div`
   padding: 2.5rem;
   z-index: 5;
   height: auto;
+
   @media (max-width: 1024px) {
     background: #ffffff;
   }
@@ -240,7 +254,8 @@ export const PicHero = styled.div`
     `}
 `
 export const PicText = styled.div`
-  max-width: 70vw;
+  max-width: 75vw;
+  /* height: inherit; */
   h1 {
     font-family: var(--gilReg);
     padding-bottom: 1rem;
@@ -260,7 +275,7 @@ export const PicText = styled.div`
     display: inline-block;
     cursor: pointer;
     position: relative;
-    color: var(--acapulco);
+    color: var(--light-monochromacy);
     &::after {
       content: "➔";
       font-size: inherit;
@@ -279,8 +294,10 @@ export const PicText = styled.div`
   }
 `
 export const MainContent = styled.div`
-  a {
+  /* a {
     font-family: var(--gilBold);
+    font-size: inherit;
+    color: inherit;
     font-size: inherit;
     display: inline-block;
     cursor: pointer;
@@ -295,10 +312,9 @@ export const MainContent = styled.div`
       font-family: var(--gilLight);
     }
     color: var(--acapulco);
-  }
+  } */
   h3 {
-    a {
-      /* margin-left: -1.6rem; */
+    /* a {
       text-indent: -1.6rem;
       @media (max-width: 967px) {
         text-indent: 0;
@@ -307,7 +323,6 @@ export const MainContent = styled.div`
         content: "➔";
         font-size: inherit;
 
-        /* position:; */
         position: relative;
         color: inherit;
         padding-right: 0.6rem;
@@ -318,12 +333,15 @@ export const MainContent = styled.div`
         color: inherit;
         padding-left: 0.5rem;
       }
-    }
+    } */
   }
   h2,
   h3 {
     padding-bottom: 0.4rem;
-    color: var(--acapulco);
+    color: var(--light-monochromacy);
+  }
+  a {
+    color: var(--light-monochromacy);
   }
   h3 {
     font-family: var(--gilSemi);
@@ -332,14 +350,15 @@ export const MainContent = styled.div`
   }
 `
 export const PicTitle = styled.div`
-  font-family: var(--gilSemi);
+  font-family: var(--gilMed);
   font-size: 0.9rem;
   align-self: flex-start;
   color: inherit;
+  color: #ffffffb9;
   ${(props) =>
     props.pageTitle &&
     css`
-      color: #fff;
+      color: #ffffffb9;
       position: absolute;
       padding-top: 4rem;
       padding-left: 2rem;
@@ -347,7 +366,7 @@ export const PicTitle = styled.div`
   ${(props) =>
     props.pageTop &&
     css`
-      color: #fff;
+      color: #ffffffb9;
       position: absolute;
       top: -1rem;
       left: -2.5rem;
@@ -384,7 +403,7 @@ export const PicImg = styled.div`
 `
 export const PicContentOverlay = styled.div`
   background: #ffffffb3;
-  padding: 4rem;
+  padding: 4rem 3.5rem 3.5rem 3.5rem;
   z-index: 5;
   height: auto;
   grid-area: 1 / 1 / 3 / 2;
@@ -436,6 +455,7 @@ export const PicContentOverlay = styled.div`
       props.PicTopHero &&
       css`
         max-width: initial;
+        height: 100%;
         justify-content: space-between;
         color: var(--color-white);
         @media (max-width: 967px) {
@@ -545,7 +565,7 @@ export const IntroText = styled.div`
     font-size: clamp(34pt, 8vw, 48pt);
     line-height: 1;
     padding-bottom: 1.5rem;
-    color: var(--acapulco);
+    color: var(--light-monochromacy);
   }
 
   h3 {
@@ -569,7 +589,7 @@ export const ScrollBox = styled.div`
   h4,
   h5 {
     padding-bottom: 0.6rem;
-    color: var(--acapulco);
+    color: var(--light-monochromacy);
   }
 
   /* margin-top:20rem; */
@@ -595,7 +615,7 @@ export const TwoColSection = styled.section`
   }
 `
 export const DidYouBox = styled.div`
-  color: var(--acapulco);
+  color: var(--light-monochromacy);
   background: var(--cloud);
   padding: 3em;
   display: flex;

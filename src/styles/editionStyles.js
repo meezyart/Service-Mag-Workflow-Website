@@ -17,7 +17,7 @@ export const MainMenu = styled(motion.section)`
   color: #fff;
   z-index: 100;
   overflow-x: hidden;
-  padding: 3rem;
+  padding: 2.5rem;
 `
 
 export const EditionNav = styled.div``

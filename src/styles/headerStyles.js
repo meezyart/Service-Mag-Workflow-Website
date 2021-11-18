@@ -31,11 +31,9 @@ export const NavItem = styled(motion.li)`
 
   color: #ffffff;
   font-weight: 600;
-  /* padding: 0 1.5rem; */
   height: 55px;
   border-right: 2px solid #ffffff58;
   font-size: 1.1rem;
-  /* background-image: url("https://camo.githubusercontent.com/b0972dd62bbf6ee0e28ed0ebceb48427a481568caeeb639066b23c754f0c60e5/68747470733a2f2f7777772e6761747362796a732e636f6d2f4761747362792d4d6f6e6f6772616d2e737667"); */
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -91,25 +89,24 @@ export const ArticleNavHolder = styled.ul`
 
 `
 export const MenuTitle = styled.div`
-  /* background: red; */
-  color: #fff;
+  color: var(--color-white);
   left: .8rem;
   opacity: .8;
-  /* text-transform: uppercase; */
   font-size: .8rem;
-  /* width: auto; */
   display: inline-flex;
 height: inherit;
   position: relative;
   width: 100%;
   font-family: var(--gilSemi);
+  @media (max-width: 567px) {
+    visibility: hidden;
+  }
 `
 
 
 export const HeaderTitle = styled.span`
-  color: #fff;
-  /* flex-basis: 80vw; */
-  /* flex: 3; */
+  color:#fff;
+
   text-transform: uppercase;
 position: absolute;
   font-weight: 600;

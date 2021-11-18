@@ -47,7 +47,6 @@ const TopOfMind = ({ pageSections ,slug}) => {
         console.log(error)
       })
     event.preventDefault()
-    // console.log(formData)
   }
 
   return (

@@ -4,12 +4,7 @@ import React, { useState } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 import clientConfig from "../../../client-config"
-import {
-  // MainHero,
-  // HeroContent,
-  HeroImg,
-
-} from "../../styles/articleStyles"
+import { HeroImg } from "../../styles/articleStyles"
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -72,46 +67,35 @@ const variants = {
 
 const types = ["Edition", "Pages"]
 const EditionMenu = ({ isActive, editions }) => {
-  // const [currentMenu, setCurrentMenu] = useState(types[0])
-  // const [currentEdition, setCurrentEdition] = useState(0)
   const [currentPage, setCurrentPage] = useState(editions[0].articlePages[0])
   const dispatch = useGlobalDispatchContext()
   const { currentEdition, currentMenu } = useGlobalStateContext()
-  console.log(
-    // editions.articlePages[0],
-    'currentEdition',currentEdition,
-    'currentMenu',currentMenu,
-    editions
-  )
+  // console.log(
+  //   // editions.articlePages[0],
+  //   'currentEdition',currentEdition,
+  //   'currentMenu',currentMenu,
+  //   editions
+  // )
   const articlePages = editions.map((edition) => {
     const arr = []
     edition.articlePages.map((page) => {
-      arr.push({...page,parentSlug: edition.slug.current})
+      arr.push({ ...page, parentSlug: edition.slug.current })
     })
-    // console.log(arr)
     return arr
   })
 
-   const handleMenuClick = (name) => {
-     console.log(name)
-     dispatch({ type: "SET_MENU", currentMenu: name })
-     // setCurrentMenu(types[index])
-   }
+  const handleMenuClick = (name) => {
+    dispatch({ type: "SET_MENU", currentMenu: name })
+  }
 
   const handleEditionClick = (index) => {
     dispatch({ type: "SET_EDITION", currentEdition: index })
     dispatch({ type: "SET_MENU", currentMenu: types[1] })
-    // setCurrentMenu(types[1])
-    // setCurrentEdition(index)
-
   }
 
   const handlePageClick = (index) => {
-    console.log("Page Clecick")
   }
 
-
-  //  const size = useWindowSize()
   return (
     <MainMenu
       variants={menuSlide}
@@ -141,48 +125,48 @@ const EditionMenu = ({ isActive, editions }) => {
                 currentMenu === "Edition" &&
                 editions &&
                 editions.map((edition, index) => {
- console.log(
-   "Check => ~ file: EditionMenu.js ~ line 158 ~ articlePages[currentEdition].map ~ edition",
-   edition.mainImage
- )
- const imageData = getGatsbyImageData(
-   edition.mainImage.asset,
-   { maxWidth: 600 },
-   clientConfig.sanity
- )
-return(
-                  <MenuItem
-                    slug={`/${edition.slug.current}/`}
-                    key={index}
-                    onClick={() => handleEditionClick(index)}
-                  >
-                    <div className="inner">
-                      <h4>{edition.title}</h4>
-                    </div>
-                    <GatsbyImage
-                      image={imageData}
-                      className="menuImg"
-                      // width={2200}
-                      // height={1300}
-                      // layout="contained"
-                      aspectRatio={16 / 9}
-                      quality={95}
-                      fit="cover"
-                      formats={["auto", "webp", "avif"]}
-                      alt={edition.title}
-                      style={{
-                        marginBottom: `0`,
-                        gridArea: "1 / 1 ",
-                        height: "100%",
-                      }}
-                    />
-                  </MenuItem>)
-})}
+                  console.log(
+                    "Check => ~ file: EditionMenu.js ~ line 158 ~ articlePages[currentEdition].map ~ edition",
+                    edition.mainImage
+                  )
+                  const imageData = getGatsbyImageData(
+                    edition.mainImage.asset,
+                    { maxWidth: 600 },
+                    clientConfig.sanity
+                  )
+                  return (
+                    <MenuItem
+                      slug={`/${edition.slug.current}/`}
+                      key={index}
+                      onClick={() => handleEditionClick(index)}
+                    >
+                      <div className="inner">
+                        <h4>{edition.title}</h4>
+                      </div>
+                      <GatsbyImage
+                        image={imageData}
+                        className="menuImg"
+                        // width={2200}
+                        // height={1300}
+                        // layout="contained"
+                        aspectRatio={16 / 9}
+                        quality={95}
+                        fit="cover"
+                        formats={["auto", "webp", "avif"]}
+                        alt={edition.title}
+                        style={{
+                          marginBottom: `0`,
+                          gridArea: "1 / 1 ",
+                          height: "100%",
+                        }}
+                      />
+                    </MenuItem>
+                  )
+                })}
               {currentMenu &&
                 currentMenu === "Pages" &&
                 articlePages &&
                 articlePages[currentEdition].map((page, index) => {
-
                   const imageData = getGatsbyImageData(
                     page.mainImage,
                     { maxWidth: 600 },

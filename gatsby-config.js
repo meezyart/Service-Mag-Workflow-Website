@@ -32,7 +32,6 @@ module.exports = {
         path: `${__dirname}/src/assets/`,
       },
     },
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,18 +39,19 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
-    `gatsby-plugin-netlify`,`gatsby-transformer-sharp`,
+    `gatsby-plugin-netlify`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `ServiceNow Employee Workflows`,
+        short_name: `Employee Workflows`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/now-favicon.png`, // This path is relative to the root of the site.
       },
     },
     {
