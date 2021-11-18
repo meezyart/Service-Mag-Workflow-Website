@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import YouTube from "react-youtube"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 import clientConfig from "../../../client-config"
-import PortableText from "../partials/portableText"
+import PortableText from "../partials/PortableText"
 
 import {
   PicHero,

@@ -21,10 +21,10 @@ import Header from "./header/Header"
 import EditionMenu from "./editionMenu/EditionMenu"
 
 // Context
-import {
-  useGlobalStateContext,
-  // useGlobalDispatchContext,
-} from "../context/globalContext"
+// import {
+//   useGlobalStateContext,
+//   // useGlobalDispatchContext,
+// } from "../context/globalContext"
 
 const Layout = ({ children, title }) => {
   // const { currentTheme } = useGlobalStateContext()

@@ -19,7 +19,7 @@ import {
   TabNav,
 } from "../../styles/editionStyles"
 import { Container, Flex } from "../../styles/globalStyles"
-import { MenuItem } from "./menuItem"
+import { MenuItem } from "./MenuItem"
 
 const transition = {
   duration: 0.3,

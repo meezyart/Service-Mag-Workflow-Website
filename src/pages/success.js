@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { PicTitle, TopForm } from '../styles/articleStyles'
-import { Container , Flex, StyledFullScreenWrapper} from '../styles/globalStyles'
+import { Container ,  StyledFullScreenWrapper} from '../styles/globalStyles'
 
 const success = () => {
     return (

@@ -8,7 +8,7 @@ import { getGatsbyImageData } from "gatsby-source-sanity"
 import clientConfig from "../../../client-config"
 import {Link} from "gatsby"
 
-import PortableText from "../partials/portableText"
+import PortableText from "../partials/PortableText"
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
 const container = {

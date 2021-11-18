@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import CoverTemplate from "../components/articlesTemps/cover"
-import Layout from "../components/layout"
-import {
-  AnimatePresence,
-  //  AnimateSharedLayout
-} from "framer-motion"
+import CoverTemplate from "../components/articlesTemps/Cover"
+import Layout from "../components/Layout"
+// import {
+//   AnimatePresence,
+//   //  AnimateSharedLayout
+// } from "framer-motion"
 // import GraphQLErrorList from "../components/graphql-error-list"
 import Hero from "../components/articlesTemps/Hero"
 import DidYouKnow from "../components/articlesTemps/DidYouKnow"
@@ -15,7 +15,7 @@ import Partnering from "../components/articlesTemps/Partnering"
 import PicTopHero from "../components/articlesTemps/PicHero"
 import TopOfMind from "../components/articlesTemps/TopOfMind"
 import { StyledWrapper } from "../styles/globalStyles"
-import { PicTitle } from "../styles/articleStyles"
+// import { PicTitle } from "../styles/articleStyles"
 
 const transition = {
   duration: 0.5,
