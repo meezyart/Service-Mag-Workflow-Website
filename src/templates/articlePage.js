@@ -69,7 +69,7 @@ export const query = graphql`
   }
 `
 
-const articlePage = ({ pageContext, props, data }) => {
+const ArticlePage = ({ pageContext, props, data }) => {
   console.log(
     "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
     "\n==========",
