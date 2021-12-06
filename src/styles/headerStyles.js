@@ -41,18 +41,10 @@ export const NavItem = styled(motion.li)`
     grid-area: "img";
     height: 100%;
     z-index: 1;
-    opacity: .7;
+    opacity: 0.7;
   }
   .inner {
     z-index: 5;
-    grid-area: "img";
-    display: flex;
-    height: inherit;
-    position: absolute;
-    justify-content: center;
-    width: inherit;
-    background-color: #1f1f1f67;
-    align-items: center;
     &:hover {
       padding: 5px;
       /* border: 2px solid transparent; */
@@ -69,8 +61,17 @@ export const NavItem = styled(motion.li)`
           overflow: hidden;
         `};
     }
+    grid-area: "img";
+    display: flex;
+    height: inherit;
+    position: absolute;
+    justify-content: center;
+    width: inherit;
+    background-color: #1f1f1f67;
+    align-items: center;
+
     svg {
-      width: 1.25rem;
+      width: 0.25rem;
     }
     ${(props) =>
       props.articleNav &&

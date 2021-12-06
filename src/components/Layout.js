@@ -40,7 +40,6 @@ const Layout = ({ children, title }) => {
           articlePages {
             _key
             mainImage: _rawMenuPhoto(resolveReferences: { maxDepth: 10 })
-
             slug {
               current
             }
@@ -95,7 +94,7 @@ const Layout = ({ children, title }) => {
 
   const layoutContainer = {
     hidden: {
-      x: "100vw",
+      x: "-100vw",
       transition,
     },
     show: {
@@ -124,17 +123,15 @@ const Layout = ({ children, title }) => {
       />
       <EditionMenu isActive={isActive} editions={editions} key={title} />
       <Header editions={editions} />
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-          initial="hidden"
-          animate="show"
-          exit="exit"
-          variants={layoutContainer}
-          key={title}
-        >
-          {children}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        variants={layoutContainer}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+        key={title}
+      >
+        {children}
+      </motion.div>
     </main>
   )
 }

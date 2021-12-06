@@ -9,27 +9,16 @@ import { HeaderNav, HeaderTitle } from "../../styles/headerStyles"
 import { Container, Flex } from "../../styles/globalStyles"
 
 const Header = ({ siteTitle, toggleButton, toggleMenu, editions }) => {
-  // const menuData = useStaticQuery(graphql`
-  //     # {
-  //     #   # allEditions {
-  //     #   #   nodes {
-  //     #   #     slug
-  //     #   #     title
-  //     #   #     id
-  //     #   #   }
-  //     #   # }
-  //     # }
-  //   `)
+
   return (
     <HeaderNav>
       <Container fluid>
-        <Flex  centerV>
+        <Flex spaceBetween centerV>
           <NavMenu editions={editions} />
           <HeaderTitle>EMPLOYEE WORKFLOWS</HeaderTitle>
-          {/* <ArticleNav /> */}
+          <ArticleNav editions={editions} />
         </Flex>
       </Container>
-      
     </HeaderNav>
   )
 }

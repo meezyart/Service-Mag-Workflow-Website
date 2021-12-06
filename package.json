@@ -11,7 +11,7 @@
         "babel-plugin-styled-components": "^1.13.3",
         "date-fns": "^2.25.0",
         "dotenv": "^8.6.0",
-        "framer-motion": "^4.1.17",
+        "framer-motion": "^5.3.3",
         "gatsby": "^4.0.1",
         "gatsby-plugin-gatsby-cloud": "^4.0.0",
         "gatsby-plugin-image": "^2.1.3",

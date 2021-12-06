@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 import styled, { css } from "styled-components"
 // ========= Cover Styles =============
-export const CoverHero = styled.div`
+export const CoverHero = styled(motion.div)`
   width: 100%;
   height: 100%;
   /* max-height: 800px; */

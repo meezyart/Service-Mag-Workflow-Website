@@ -2,10 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import CoverTemplate from "../components/articlesTemps/Cover"
 import Layout from "../components/Layout"
-// import {
-//   AnimatePresence,
-//   //  AnimateSharedLayout
-// } from "framer-motion"
+import {
+  AnimatePresence,
+  //  AnimateSharedLayout
+} from "framer-motion"
 // import GraphQLErrorList from "../components/graphql-error-list"
 import Hero from "../components/articlesTemps/Hero"
 import DidYouKnow from "../components/articlesTemps/DidYouKnow"
@@ -25,19 +25,15 @@ const transition = {
 
 const layoutContainer = {
   hidden: {
-    x: "100vw",
-    transition,
+    x: "-100vw",
+
   },
   show: {
     x: 0,
-    transition: {
-      ...transition,
-      // when: "beforeChildren",
-      // staggerChildren: 0.3,
-    },
+     transition,
   },
   exit: {
-    x: "-100vw",
+    x: "100vw",
     transition,
   },
 }
@@ -70,19 +66,19 @@ export const query = graphql`
 `
 
 const ArticlePage = ({ pageContext, props, data }) => {
-  console.log(
-    "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
-    "\n==========",
-    data,
-    "\n==========",
-    props,
-    "\n==========",
-    pageContext
-  )
+  // console.log(
+  //   "Check => ~ file: articlePage.js ~ line 54 ~ articlePage ~ data",
+  //   "\n==========",
+  //   data,
+  //   "\n==========",
+  //   props,
+  //   "\n==========",
+  //   pageContext
+  // )
   let pageContent = null
 
   if (pageContext._type === "editions") {
-    // Editons
+    // Editions
     const { _id } = data.editions || {}
     pageContent = <CoverTemplate key={_id} {...data.editions} />
   }
@@ -122,19 +118,17 @@ const ArticlePage = ({ pageContext, props, data }) => {
   console.log("pageContent", pageContent)
   return (
     <Layout>
-      {/* <AnimatePresence> */}
       <StyledWrapper
-        // variants={layoutContainer}
-        // initial="hidden"
-        // animate="show"
+        variants={layoutContainer}
+        initial="hidden"
+        animate="show"
         exit="exit"
       >
-        {pageContext.pageTemplate === "Read, Watch, Listen" && (
-          <PicTopHero key={pageContext.pageTemplate.id} {...pageContext} />
-        )}
-        {pageContent}
+          {pageContext.pageTemplate === "Read, Watch, Listen" && (
+            <PicTopHero key={pageContext.pageTemplate.id} {...pageContext} />
+          )}
+          {pageContent}
       </StyledWrapper>
-      {/* </AnimatePresence> */}
     </Layout>
   )
 }

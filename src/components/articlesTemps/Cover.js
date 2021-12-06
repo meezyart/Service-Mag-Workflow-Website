@@ -13,7 +13,7 @@ import PortableText from "../partials/PortableText"
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
 const container = {
   hidden: {
-    x: "100vw",
+    x: "100vh",
     transition,
   },
   show: {
@@ -21,7 +21,7 @@ const container = {
     transition,
   },
   exit: {
-    x: "-100vw",
+    x: "-100vh",
     transition,
   },
 }
@@ -44,7 +44,13 @@ const CoverTemplate = ({
   )
   return (
 
-    <CoverHero>
+    <CoverHero
+          // initial="hidden"
+          // animate="show"
+          // exit="exit"
+          // variants={container}
+          // key={title}
+    >
       <div className="heroWrap">
         <GatsbyImage
           image={imageData}
