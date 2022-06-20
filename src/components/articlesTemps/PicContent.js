@@ -62,7 +62,7 @@ const PicContent = ({
         <div className="sideContentWrapper">
           <p>{sideSecBlurb}</p>
           <ArrowLink
-            green
+            white
             right
             href={sideSecCta.url || sideSecCta.link}
             target={sideSecCta.openInNewTab ? "_blank" : ""}

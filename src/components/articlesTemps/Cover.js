@@ -43,7 +43,6 @@ const CoverTemplate = ({
     clientConfig.sanity
   )
   return (
-
     <CoverHero>
       <div className="heroWrap">
         <GatsbyImage
@@ -92,6 +91,7 @@ const CoverTemplate = ({
                       <Link to={`/${_rawSlug.current}/${page.slug.current}`}>
                         <h4>{title}</h4>
                       </Link>
+                     
                       {subText}
                     </TocTitle>
                   ))}
@@ -100,7 +100,7 @@ const CoverTemplate = ({
           </Flex>
         </Container>
       </CoverContent>
-  </CoverHero>
+    </CoverHero>
   )
 }
 

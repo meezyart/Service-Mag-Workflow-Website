@@ -22,8 +22,7 @@ const Partnering = ({
   pageSections,
 }) => {
 
-  console.log("Check => ~ file: Partnering.js ~ line 24 ~   pageTemplate",pageSections,
-  pageSections)
+
 
   const imageData = getGatsbyImageData(
    mainImage && mainImage.asset,

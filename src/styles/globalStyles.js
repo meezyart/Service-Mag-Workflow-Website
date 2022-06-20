@@ -11,6 +11,9 @@ ${normalize}
 
 
 :root {
+    --brand-green:#86ED78;
+    --brand-blue:#032D42;
+    --black:#000;
     --gable-green: #293e40;
     --acapulco: #81b5a1;
     --cloud: #f7f7f7;
@@ -314,9 +317,9 @@ export const ArrowLink = styled(Link)`
       color: var(--gable-green);
     `}
   ${(props) =>
-    props.green &&
+    props.black &&
     css`
-      color: var(--light-monochromacy) ;
+      color: var(--black) ;
     `}
   ${(props) =>
     props.white &&

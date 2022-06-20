@@ -41,7 +41,7 @@ export const NavItem = styled(motion.li)`
     grid-area: "img";
     height: 100%;
     z-index: 1;
-    opacity: .7;
+    opacity: 0.7;
   }
   .inner {
     z-index: 5;
@@ -60,7 +60,7 @@ export const NavItem = styled(motion.li)`
       ${(props) =>
         props.articleNav &&
         css`
-          background-color: #4b5d5d96;
+          background-color: var(--brand-blue);
           svg {
             fill: #000000f1;
           }
@@ -92,7 +92,7 @@ export const MenuTitle = styled.div`
   color: var(--color-white);
   left: .8rem;
   opacity: .8;
-  font-size: .8rem;
+  font-size: .9rem;
   display: inline-flex;
 height: inherit;
   position: relative;

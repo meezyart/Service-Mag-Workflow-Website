@@ -13,7 +13,7 @@ export const MainMenu = styled(motion.section)`
   display: fixed;
 
   flex-direction: column;
-  background: #293e40;
+  background: var(--brand-blue);
   color: #fff;
   z-index: 100;
   overflow-x: hidden;
@@ -31,7 +31,8 @@ export const TabNav = styled.button`
   ${(props) =>
     props.active &&
     css`
-      background-color: #81b5a1;
+      color: var(--black);
+      background-color: var(--brand-green);
     `};
 `
 export const EditionNavItem = styled(motion.div)`
@@ -62,15 +63,15 @@ export const EditionNavItem = styled(motion.div)`
   }
   .inner {
     grid-area: "img";
-width: inherit;
+    width: inherit;
     /* background: blue; */
     display: flex;
     height: inherit;
     position: absolute;
     z-index: 5;
     color: white;
-    font-size: 1.5rem;
-    font-family: var(--gilSemi);
+    font-size: var(--font-title2a-size);
+    font-family: var(--gilMed);
     justify-content: center;
     align-items: center;
     padding: 2rem;

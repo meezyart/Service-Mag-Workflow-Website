@@ -56,10 +56,10 @@ const Hero = ({
             <Col size="1">
               <div className="inner">
                 <h1
-                  dangerouslySetInnerHTML={{ __html: `<i> ${heading} </i>` }}
+                  dangerouslySetInnerHTML={{ __html: ` ${heading} ` }}
                 />
 
-                <Line />
+                {/* <Line />  */}
                 <h2 dangerouslySetInnerHTML={{ __html: subTitle }} />
               </div>
             </Col>

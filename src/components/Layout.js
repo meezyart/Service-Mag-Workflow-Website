@@ -80,7 +80,7 @@ const Layout = ({ children, title }) => {
 
   const Hamburger = {
     position: "fixed",
-    backgroundColor: "#4B5D5D",
+    backgroundColor: "#032D42",
     fontSize: ".8rem",
     width: "55px",
     height: "55px",

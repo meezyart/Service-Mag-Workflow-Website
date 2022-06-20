@@ -69,18 +69,20 @@ export const CoverHero = styled.div`
     h4 {
       font-size: clamp(1.2rem, 3vw, 2rem);
       color: black;
-      font-family: var(--gilLight);
+      font-family: var(--gilMed);
     }
     h3 {
       color: black;
+      text-transform: uppercase;
     }
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 6rem);
-      line-height: 1.1;
-      color: var(--gable-green);
+      font-size: clamp(3rem, 4vw, 6rem);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--black);
       /* font-weight: 500; */
-      font-family: var(--gilReg);
+      font-family: var(--gilBold);
     }
   }
 `
@@ -141,7 +143,8 @@ export const CoverContent = styled.div`
 export const TocTitle = styled.li`
   h4 {
     font-family: var(--gilMed);
-    color: ${(props) => props.color || css`var(--acapulco);`};
+    // color: ${(props) => props.color || css`var(--black);`};
+    color: var(--black);
   }
 `
 
@@ -169,6 +172,7 @@ export const HeroContentOverlay = styled.div`
   z-index: 5;
   text-align: center;
   .inner {
+    text-decoration: uppercase;
     padding-top: 5rem;
     /* width: 100%; */
   }
@@ -187,18 +191,20 @@ export const HeroContentOverlay = styled.div`
     padding: 2.5rem;
   }
   h1 {
-    font-family: var(--gilLight);
-    font-size: clamp(2.2rem, 5.8vw, 60pt);
+    font-family: var(--gilBold);
+    // text-transform: uppercase;
+    font-size: clamp(3.1rem, 5.8vw, 80pt);
+    line-height:1;
     margin: 0;
   }
   h2 {
-    font-family: var(--gilMed);
+    // font-family: var(--gilMed);
     /* line-height: ; */
   }
 `
 export const HeroContent = styled.div`
   background: #ffffffa6;
-  padding: 2.5rem;
+  padding: 2rem;
   z-index: 5;
   height: auto;
 
@@ -257,7 +263,7 @@ export const PicText = styled.div`
   max-width: 75vw;
   /* height: inherit; */
   h1 {
-    font-family: var(--gilReg);
+    font-family: var(--gilBold);
     padding-bottom: 1rem;
   }
   h2 {
@@ -275,7 +281,7 @@ export const PicText = styled.div`
     display: inline-block;
     cursor: pointer;
     position: relative;
-    color: var(--light-monochromacy);
+    // color: var(--brand-blue);
     &::after {
       content: "➔";
       font-size: inherit;
@@ -311,7 +317,7 @@ export const MainContent = styled.div`
     span {
       font-family: var(--gilLight);
     }
-    color: var(--acapulco);
+    color: var(--black);
   } */
   h3 {
     /* a {
@@ -338,19 +344,19 @@ export const MainContent = styled.div`
   h2,
   h3 {
     padding-bottom: 0.4rem;
-    color: var(--light-monochromacy);
+    color: var(--black);
   }
   a {
-    color: var(--light-monochromacy);
+    color: var(--black);
   }
   h3 {
     font-family: var(--gilSemi);
     line-height: 1.2;
-    font-size: clamp(0.5rem, 5vw, 1.3rem);
+    font-size: clamp(0.5rem, 5vw, 24pt);
   }
 `
 export const PicTitle = styled.div`
-  font-family: var(--gilMed);
+  font-family: var(--gilBold);
   font-size: 0.9rem;
   align-self: flex-start;
   color: inherit;
@@ -502,9 +508,9 @@ export const PartnerHero = styled.div`
   width: 100%;
   bottom: 0;
   top: 0;
+  overflow: scroll;
   /* overflow: hidden; */
   position: absolute;
-
 
   grid-template-rows: 1fr;
   .fullScreen {
@@ -535,7 +541,7 @@ export const PartnerContentOverlay = styled.div`
   z-index: 5;
   padding: 2.5rem;
   max-width: 54rem;
-  overflow: scroll;
+
 
   @media (max-width: 967px) {
     padding: 0;
@@ -565,7 +571,7 @@ export const IntroText = styled.div`
     font-size: clamp(34pt, 8vw, 48pt);
     line-height: 1;
     padding-bottom: 1.5rem;
-    color: var(--light-monochromacy);
+    color: var(--brand-green);
   }
 
   h3 {
@@ -589,7 +595,7 @@ export const ScrollBox = styled.div`
   h4,
   h5 {
     padding-bottom: 0.6rem;
-    color: var(--light-monochromacy);
+    color: var(--black);
   }
 
   /* margin-top:20rem; */
@@ -615,7 +621,7 @@ export const TwoColSection = styled.section`
   }
 `
 export const DidYouBox = styled.div`
-  color: var(--light-monochromacy);
+  color: var(--black);
   background: var(--cloud);
   padding: 3em;
   display: flex;
@@ -631,7 +637,7 @@ export const DidYouBox = styled.div`
 
 export const TopForm = styled.div`
   color: var(--color-white);
-  background: var(--gable-green);
+  background: var(--brand-blue);
   padding: 5em;
   display: flex;
   width: 100vw;
@@ -660,9 +666,9 @@ export const TopForm = styled.div`
   }
   button {
     padding: 1rem;
-    background: var(--acapulco);
-    font-family: var(--gilBold);
-    color: var(--color-white);
+    background: var(--brand-green);
+    font-family: var(--gilSemi);
+    color: var(--black);
     cursor: pointer;
   }
   input,
